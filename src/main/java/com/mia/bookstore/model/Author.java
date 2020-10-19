@@ -9,17 +9,18 @@ import java.util.List;
 
 @Data
 @NoArgsConstructor
-@Entity
-@Table(name = "AUTHORS")
+@AllArgsConstructor
+@Entity(name = "author")
+@Table(name = "authors")
 public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column(name = "AUTHOR_NAME", nullable = false, unique = false)
+    @Column(name = "author_name", nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "AUTHOR_NAME", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
     private List<Book> bookList;
 
 }
