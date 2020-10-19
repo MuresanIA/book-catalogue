@@ -1,5 +1,6 @@
 package com.mia.bookstore.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,15 +9,16 @@ import java.util.List;
 
 @Data
 @NoArgsConstructor
-@Entity
-@Table(name = "GENRES")
+@AllArgsConstructor
+@Entity(name = "genre")
+@Table(name = "genres")
 public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column(name = "BOOK_GENRE", length = 50, nullable = false, unique = false)
+    @Column(name = "book_genre", length = 50, nullable = false, unique = false)
     private String genre;
 
-    @OneToMany(mappedBy = "BOOK_GENRE", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "genre", cascade = CascadeType.ALL)
     private List<Book> bookList;
 }
