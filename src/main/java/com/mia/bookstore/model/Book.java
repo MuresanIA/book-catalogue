@@ -15,7 +15,7 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column(name = "book_name", nullable = false, unique = false)
+    @Column(name = "book_name", nullable = false)
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)

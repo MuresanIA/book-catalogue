@@ -16,7 +16,7 @@ public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column(name = "book_genre", length = 50, nullable = false, unique = false)
+    @Column(name = "book_genre", length = 50, nullable = false)
     private String genre;
 
     @OneToMany(mappedBy = "genre", cascade = CascadeType.ALL)
