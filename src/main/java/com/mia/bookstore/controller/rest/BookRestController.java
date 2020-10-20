@@ -20,23 +20,40 @@ public class BookRestController {
 
     @GetMapping("/books")
     public ResponseEntity<List<Book>> showAllBooks() {
-        return ResponseEntity.ok(bookRepository.findAll());
+
+        try {
+            return ResponseEntity.ok(bookRepository.findAll());
+        } catch (Exception exception) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @GetMapping("/books/{id}")
     public ResponseEntity<Book> showBook(@PathVariable Integer id) {
-        return ResponseEntity.of(bookRepository.findById(id));
+        try {
+            return ResponseEntity.of(bookRepository.findById(id));
+        } catch (Exception exception) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @PostMapping("/books/create")
     public ResponseEntity<Book> createBook(@RequestBody Book book) {
-        bookRepository.save(book);
-        return ResponseEntity.ok(book);
+        try {
+            bookRepository.save(book);
+            return ResponseEntity.ok(book);
+        } catch (Exception exception) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @PutMapping("/books/edit")
     public ResponseEntity<Book> editBook(@RequestBody Book book) {
-        return ResponseEntity.ok(bookRepository.save(book));
+        try {
+            return ResponseEntity.ok(bookRepository.save(book));
+        } catch (Exception exception) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @DeleteMapping("/books/delete/{id}")
