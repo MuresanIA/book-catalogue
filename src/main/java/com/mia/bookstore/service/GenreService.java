@@ -21,11 +21,6 @@ public class GenreService {
         return genre.orElse(null);
     }
 
-    public Genre findGenreById(Integer id) {
-        Optional<Genre> genre = Optional.ofNullable(genreRepository.findByGenreId(id));
-        return genre.orElse(null);
-
-    }
 
     public void saveGenre(Genre genre) {
         genreRepository.save(genre);
