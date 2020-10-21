@@ -34,7 +34,7 @@ public class AuthorController {
     @RequestMapping(method = RequestMethod.POST, value = "/createauthor")
     public String createAuthor(@ModelAttribute Author author) {
         authorService.saveAuthor(author);
-        return "redirect:/createauthor.html";
+        return "redirect:/authors.html";
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/editauthor/{id}")
@@ -47,7 +47,15 @@ public class AuthorController {
     @RequestMapping(method = RequestMethod.POST, value = "/editauthor/{id}")
     public String editAuthor(@ModelAttribute Author author, @PathVariable Integer id) {
         authorService.saveAuthor(author);
-        return "redirect:/editauthor.html";
+        return "redirect:/authors.html";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = ("/deleteauthor/{id}"))
+    public String deleteAuthor(@PathVariable Integer id) {
+
+        authorService.deleteById(id);
+        return "redirect:/authors.html";
+
     }
 }
 
