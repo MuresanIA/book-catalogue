@@ -21,40 +21,40 @@ public class AuthorController {
 
         model.addAttribute("authors", authorService.findAllAuthors());
 
-        return "author/authors.html";
+        return "author/authors";
 
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/createauthor")
     public String createAuthor(Model model) {
         model.addAttribute("author", new Author());
-        return "author/createauthor.html";
+        return "author/createauthor";
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/createauthor")
     public String createAuthor(@ModelAttribute Author author) {
         authorService.saveAuthor(author);
-        return "redirect:/authors.html";
+        return "redirect:/createauthor";
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/editauthor/{id}")
     public String editAuthor(Model model, @PathVariable Integer id) {
         Author author = authorService.findById(id);
         model.addAttribute("author", author);
-        return "author/editauthor.html";
+        return "author/editauthor";
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/editauthor/{id}")
     public String editAuthor(@ModelAttribute Author author, @PathVariable Integer id) {
         authorService.saveAuthor(author);
-        return "redirect:/authors.html";
+        return "redirect:/authors";
     }
 
     @RequestMapping(method = RequestMethod.GET, value = ("/deleteauthor/{id}"))
     public String deleteAuthor(@PathVariable Integer id) {
 
         authorService.deleteById(id);
-        return "redirect:/authors.html";
+        return "redirect:/authors";
 
     }
 }

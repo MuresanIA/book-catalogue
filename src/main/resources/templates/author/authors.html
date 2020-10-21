@@ -6,13 +6,19 @@
 </head>
 <body>
 <div class="container">
-    <div th:each="author : ${authors}">
-        <div th:text="${author.name}"></div>
+    <div th:each="a : ${authors}">
+        <div th:text="${a.name}"></div>
+
+    <div>
+        <form th:action="@{/editauthor/{id}(id = ${a.id})}" method="get">
+            <input type="submit" value="Edit" />
+        </form>
     </div>
     <div>
-        <form th:action="">
-
+        <form th:action="@{/deleteauthor/{id}(id = ${a.id})}" method="get">
+            <input th:class="delete-button-chat-rooms-form" type="submit" value="Delete"/>
         </form>
+    </div>
     </div>
 </div>
 <div>
