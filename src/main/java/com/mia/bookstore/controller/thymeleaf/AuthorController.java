@@ -1,5 +1,6 @@
 package com.mia.bookstore.controller.thymeleaf;
 
+import com.mia.bookstore.model.Author;
 import com.mia.bookstore.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,7 +15,7 @@ public class AuthorController {
     private AuthorService authorService;
 
     @RequestMapping(method = RequestMethod.GET, value = "/authors")
-    public String showAllAuthors(Model model){
+    public String showAllAuthors(Model model) {
 
         model.addAttribute("authors", authorService.findAllAuthors());
 
@@ -22,4 +23,10 @@ public class AuthorController {
 
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/createauthor")
+    public String createAuthor(Model model) {
+        model.addAttribute("author", new Author());
+        return "author/createauthor.html";
+    }
 }
+
