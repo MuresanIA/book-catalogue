@@ -16,7 +16,7 @@ public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Integer authorId;
     @Column(name = "author_name", nullable = false)
     private String name;
 

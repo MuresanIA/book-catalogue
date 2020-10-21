@@ -34,7 +34,20 @@ public class AuthorController {
     @RequestMapping(method = RequestMethod.POST, value = "/createauthor")
     public String createAuthor(@ModelAttribute Author author) {
         authorService.saveAuthor(author);
-        return "redirect:/createauthor";
+        return "redirect:/createauthor.html";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/editauthor/{id}")
+    public String editAuthor(Model model, @PathVariable Integer id) {
+        Author author = authorService.findById(id);
+        model.addAttribute("author", author);
+        return "author/editauthor.html";
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/editauthor/{id}")
+    public String editAuthor(@ModelAttribute Author author, @PathVariable Integer id) {
+        authorService.saveAuthor(author);
+        return "redirect:/editauthor.html";
     }
 }
 

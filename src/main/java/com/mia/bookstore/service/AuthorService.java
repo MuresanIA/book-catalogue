@@ -22,6 +22,10 @@ public class AuthorService {
         return author.orElse(null);
     }
 
+    public Author findById(Integer id) {
+        Optional<Author> author = authorRepository.findById(id);
+        return author.orElse(null);
+    }
 
     public void saveAuthor(Author author) {
         authorRepository.save(author);
