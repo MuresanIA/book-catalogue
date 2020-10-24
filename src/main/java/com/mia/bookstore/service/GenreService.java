@@ -22,8 +22,8 @@ public class GenreService {
     }
 
 
-    public void saveGenre(Genre genre) {
-        genreRepository.save(genre);
+    public Genre saveGenre(Genre genre) {
+        return genreRepository.save(genre);
     }
 
     public void deleteGenre(Integer id) {

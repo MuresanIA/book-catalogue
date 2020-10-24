@@ -9,7 +9,7 @@
 <div class="container">
     <div><p>Create an author</p></div>
     <form th:action="@{/createauthor}" th:object="${author}" method="post">
-        <input th:field="*{name}" id="name" type="text" placeholder="Create new author here..."/>
+        <input th:field="*{authorName}" id="name" type="text" placeholder="Create new author here..."/>
         <button type="submit">Create</button>
     </form>
 </div>

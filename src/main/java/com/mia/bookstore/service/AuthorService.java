@@ -23,22 +23,22 @@ public class AuthorService {
     }
 
     public Author findById(Integer id) {
-        Optional<Author> author = authorRepository.findById(id);
+
+        Optional<Author> author = Optional.ofNullable(authorRepository.findByAuthorId(id));
         return author.orElse(null);
     }
 
-    public Author findByAuthorName(String name) {
-        Author author = authorRepository.findByAuthorName(name);
+    public Author findByAuthorName(String authorName) {
+        Author author = authorRepository.findByAuthorName(authorName);
         return author;
     }
 
-    public void save(Author author) {
-        authorRepository.save(author);
+    public Author save(Author author) {
+        return authorRepository.save(author);
     }
 
     public void deleteById(Integer id) {
         authorRepository.deleteById(id);
     }
 
-    //TODO: authorFindById();
 }

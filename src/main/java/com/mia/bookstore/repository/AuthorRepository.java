@@ -6,7 +6,9 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface AuthorRepository extends JpaRepository<Author, Integer> {
 
-    @Query("FROM author a WHERE a.name = :name")
-    public Author findByAuthorName(String name);
+    @Query("FROM author a WHERE a.authorName = :authorName")
+     Author findByAuthorName(String authorName);
+
+    Author findByAuthorId(Integer id);
 
 }

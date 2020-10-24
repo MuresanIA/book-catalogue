@@ -6,9 +6,10 @@
 </head>
 <body>
 <div class="container">
-    <form th:action="@{/editauthor/{id}(id = ${author.id})}" th:object="${author}" method="post">
+    <form th:action="@{/editauthor/{id}(id = ${author.authorId})}" th:object="${author}" method="post">
         <div><p>Edit author</p></div>
-        <input th:field="*{name}" id="author_name" type="text" placeholder="Edit author here..." required/>
+        <input th:field="*{authorId}" type="hidden">
+        <input th:field="*{authorName}" id="author_name" type="text" placeholder="Edit author here..." required/>
         <button type="submit">Save</button>
     </form>
 </div>

@@ -56,7 +56,7 @@ public class AuthorRestController {
         }
     }
 
-    @DeleteMapping("/authors/delete/{id}")
+    @DeleteMapping("/deleteauthor/{id}")
     public ResponseEntity<Author> deleteAuthor(@PathVariable Integer id) {
 
         try {

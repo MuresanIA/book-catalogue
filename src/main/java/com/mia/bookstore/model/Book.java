@@ -14,9 +14,9 @@ import javax.persistence.*;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Integer bookId;
     @Column(name = "book_name", nullable = false)
-    private String name;
+    private String bookName;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Author author;

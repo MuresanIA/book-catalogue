@@ -15,9 +15,9 @@ import java.util.List;
 public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Integer genreId;
     @Column(name = "book_genre", length = 50, nullable = false)
-    private String genre;
+    private String genreName;
 
     @OneToMany(mappedBy = "genre", cascade = CascadeType.ALL)
     private List<Book> bookList;
