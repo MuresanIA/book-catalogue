@@ -1,10 +1,7 @@
 package com.mia.bookstore.controller.thymeleaf;
 
 import com.mia.bookstore.model.Author;
-import com.mia.bookstore.model.Book;
 import com.mia.bookstore.service.AuthorService;
-import com.mia.bookstore.service.BookService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,13 +14,10 @@ public class AuthorController {
 
     private final AuthorService authorService;
 
-    private final BookService bookService;
 
-    public AuthorController(AuthorService authorService, BookService bookService) {
+    public AuthorController(AuthorService authorService) {
         this.authorService = authorService;
-        this.bookService = bookService;
     }
-
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/authors")
