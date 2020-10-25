@@ -21,6 +21,10 @@ public class GenreService {
         return genre.orElse(null);
     }
 
+    public Genre findById(Integer id) {
+        Optional<Genre> genre = genreRepository.findById(id);
+        return genre.orElse(null);
+    }
 
     public Genre saveGenre(Genre genre) {
         return genreRepository.save(genre);
