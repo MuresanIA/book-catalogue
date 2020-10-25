@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Authors</title>
+</head>
+<body>
+<div class="container">
+    <table>
+        <thead>
+        <tr>
+            <td class="thead-text">
+                Author Name
+            </td>
+
+            <td class="thead-text">Action</td>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="a : ${authors}">
+            <td th:text="${a.authorName}"></td>
+            <td>
+                <a th:href="@{/editauthor/{id} (id = ${a.authorId})}">
+                    <i>Edit</i>
+                </a>
+                <a th:href="@{/deleteauthor/{id} (id = ${a.authorId})}">
+                    <i>Delete</i>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<hr>
+<div class="container">
+    <a th:href="@{/createauthor}">
+        <i>Create Author</i>
+    </a>
+</div>
+
+<!--    <div th:each="a : ${authors}">-->
+<!--        <div th:text="${a.name}"></div>-->
+
+<!--    <div>-->
+<!--        <form th:action="@{/editauthor/{id}(id = ${a.id})}" method="get">-->
+<!--            <input type="submit" value="Edit" />-->
+<!--        </form>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <form th:action="@{/deleteauthor/{id}(id = ${a.id})}" method="get">-->
+<!--            <input th:class="delete-button-chat-rooms-form" type="submit" value="Delete"/>-->
+<!--        </form>-->
+<!--    </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div>-->
+<!--    <form th:action="@{/createauthor}" method="GET">-->
+<!--        <input type="submit" value="Create Author"/>-->
+<!--    </form>-->
+
+</body>
+</html>

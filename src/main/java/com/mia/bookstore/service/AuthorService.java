@@ -22,12 +22,23 @@ public class AuthorService {
         return author.orElse(null);
     }
 
+    public Author findById(Integer id) {
 
-    public void saveAuthor(Author author) {
-        authorRepository.save(author);
+        Optional<Author> author = Optional.ofNullable(authorRepository.findByAuthorId(id));
+        return author.orElse(null);
     }
 
-    public void deleteAuthor(Integer id) {
+    public Author findByAuthorName(String authorName) {
+        Author author = authorRepository.findByAuthorName(authorName);
+        return author;
+    }
+
+    public Author save(Author author) {
+        return authorRepository.save(author);
+    }
+
+    public void deleteById(Integer id) {
         authorRepository.deleteById(id);
     }
+
 }

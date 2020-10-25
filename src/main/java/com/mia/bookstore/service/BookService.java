@@ -1,6 +1,5 @@
 package com.mia.bookstore.service;
 
-import com.mia.bookstore.model.Author;
 import com.mia.bookstore.model.Book;
 import com.mia.bookstore.repository.BookRepository;
 import org.springframework.stereotype.Service;
@@ -22,15 +21,14 @@ public class BookService {
         return book.orElse(null);
     }
 
-    public void saveBook(Book book) {
-        bookRepository.save(book);
+    public Book saveBook(Book book) {
+        return bookRepository.save(book);
     }
 
-    public Author findAuthorByBook(Integer id) {
-        Optional<Author> author = Optional.ofNullable(bookRepository.findById(id).get().getAuthor());
-        return author.orElse(null);
+    public Book findById(Integer id) {
+        Optional<Book> book = bookRepository.findById(id);
+        return book.orElse(null);
     }
-
 
     public void deleteBook(Integer id) {
         bookRepository.deleteById(id);
