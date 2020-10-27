@@ -29,7 +29,7 @@ public class BookRestController {
     }
 
     @GetMapping("/books/{id}")
-    public ResponseEntity<Book> showBook(@PathVariable Integer id) {
+    public ResponseEntity<Book> showBook(@PathVariable Long id) {
         try {
             return ResponseEntity.of(bookRepository.findById(id));
         } catch (Exception exception) {
@@ -57,7 +57,7 @@ public class BookRestController {
     }
 
     @DeleteMapping("/books/delete/{id}")
-    public ResponseEntity<Book> deleteBook(@PathVariable Integer id) {
+    public ResponseEntity<Book> deleteBook(@PathVariable Long id) {
 
         try {
             bookRepository.deleteById(id);

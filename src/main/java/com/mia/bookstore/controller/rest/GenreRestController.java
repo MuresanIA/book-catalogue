@@ -28,7 +28,7 @@ public class GenreRestController {
     }
 
     @GetMapping("/genre/{id}")
-    public ResponseEntity<Genre> getGenre(@PathVariable Integer id) {
+    public ResponseEntity<Genre> getGenre(@PathVariable Long id) {
         try {
             return ResponseEntity.of(genreRepository.findById(id));
         } catch (Exception ex) {
@@ -56,7 +56,7 @@ public class GenreRestController {
     }
 
     @DeleteMapping("/genre/delete/{id}")
-    public ResponseEntity<Genre> deleteGenre(@PathVariable Integer id) {
+    public ResponseEntity<Genre> deleteGenre(@PathVariable Long id) {
         try {
             genreRepository.deleteById(id);
             return ResponseEntity.ok().build();

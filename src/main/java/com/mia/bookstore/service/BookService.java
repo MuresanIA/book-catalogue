@@ -25,12 +25,12 @@ public class BookService {
         return bookRepository.save(book);
     }
 
-    public Book findById(Integer id) {
+    public Book findById(Long id) {
         Optional<Book> book = bookRepository.findById(id);
         return book.orElse(null);
     }
 
-    public void deleteBook(Integer id) {
+    public void deleteBook(Long id) {
         bookRepository.deleteById(id);
     }
 

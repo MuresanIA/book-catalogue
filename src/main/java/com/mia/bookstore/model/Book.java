@@ -15,7 +15,7 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "book_id")
-    private Integer bookId;
+    private Long bookId;
     @Column(name = "book_name", nullable = false)
     private String bookName;
 
