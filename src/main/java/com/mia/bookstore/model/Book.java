@@ -10,18 +10,22 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "book")
-@Table(name = "books")
+@Table()
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "book_id")
     private Integer bookId;
     @Column(name = "book_name", nullable = false)
     private String bookName;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "author_id", nullable = false)
     private Author author;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "genre_id", nullable = false)
     private Genre genre;
+
 
 }

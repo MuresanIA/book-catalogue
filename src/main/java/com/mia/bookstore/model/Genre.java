@@ -11,10 +11,11 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "genre")
-@Table(name = "genres")
+@Table()
 public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "genre_id")
     private Integer genreId;
     @Column(name = "book_genre", length = 50, nullable = false)
     private String genreName;
