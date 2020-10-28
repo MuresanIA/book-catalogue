@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Edit Book</title>
 </head>
 <body>
-
+<div class="container">
+    <form th:action="@{/editbook/{id}(id=${book.bookId})}" th:object="${book}" method="post">
+        <div><p>Edit Book</p></div>
+        <input th:field="*{bookId}" type="hidden"/>
+        <input th:field="*{bookName}" id="book_name" type="text" placeholder="Edit book here..." required/>
+        <button type="submit">Save</button>
+    </form>
+</div>
 </body>
 </html>

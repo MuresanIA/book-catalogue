@@ -19,11 +19,26 @@
         </tr>
         </thead>
         <tbody>
-<!--            <tr th:each="b : ${book}">-->
-
-            </tr>
+        <tr th:each="b : ${books}">
+            <td th:text="${b.bookName}"></td>
+            <td th:text="${b.author}"></td>
+            <td th:text="${b.genre}"></td>
+            <td>
+                <a th:href="@{/editbook/{id} (id=${b.bookId})}"></a>
+                <i>Edit</i>
+            </td>
+            <td>
+                <a th:href="@{/deletebook/{id} (id=${b.bookId})}"></a>
+                <i>Delete</i>
+            </td>
+        </tr>
         </tbody>
     </table>
+</div>
+<div class="container">
+    <a th:href="@{/createbook}">
+    <id>Create Book</id>
+    </a>
 </div>
 </body>
 </html>
