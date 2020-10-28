@@ -22,7 +22,7 @@ public class AuthorService {
         return author.orElse(null);
     }
 
-    public Author findById(Integer id) {
+    public Author findById(Long id) {
 
         Optional<Author> author = Optional.ofNullable(authorRepository.findByAuthorId(id));
         return author.orElse(null);
@@ -37,7 +37,7 @@ public class AuthorService {
         return authorRepository.save(author);
     }
 
-    public void deleteById(Integer id) {
+    public void deleteById(Long id) {
         authorRepository.deleteById(id);
     }
 

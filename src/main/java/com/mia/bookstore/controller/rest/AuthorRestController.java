@@ -28,7 +28,7 @@ public class AuthorRestController {
     }
 
     @GetMapping("/authors/{id}")
-    public ResponseEntity<Author> getAuthor(@PathVariable Integer id) {
+    public ResponseEntity<Author> getAuthor(@PathVariable Long id) {
         try {
             return ResponseEntity.of(authorRepository.findById(id));
         } catch (Exception exception) {
@@ -57,7 +57,7 @@ public class AuthorRestController {
     }
 
     @DeleteMapping("/deleteauthor/{id}")
-    public ResponseEntity<Author> deleteAuthor(@PathVariable Integer id) {
+    public ResponseEntity<Author> deleteAuthor(@PathVariable Long id) {
 
         try {
             authorRepository.deleteById(id);

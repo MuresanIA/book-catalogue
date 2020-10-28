@@ -11,12 +11,13 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "author")
-@Table(name = "authors")
+@Table()
 public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer authorId;
+    @Column(name = "author_id")
+    private Long authorId;
     @Column(name = "author_name", nullable = false)
     private String authorName;
 

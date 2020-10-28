@@ -20,6 +20,7 @@
         <tbody>
         <tr th:each="a : ${authors}">
             <td th:text="${a.authorName}"></td>
+            <td th:text="${a.bookList}"></td>
             <td>
                 <a th:href="@{/editauthor/{id} (id = ${a.authorId})}">
                     <i>Edit</i>
