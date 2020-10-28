@@ -3,9 +3,42 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Genres</title>
 </head>
 <body>
-
+<div class="container">
+    <p>
+        A list of genres
+    </p>
+</div>
+<div class="container">
+    <table>
+        <thead>
+        <tr>
+            <td class="thead-text">Genre</td>
+            <td class="thead-text">Action</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="g : ${genres}">
+            <td th:text="${g.genreName}"></td>
+            <td th:text="${g.bookList}"></td>
+            <td>
+                <a th:href="@{/editgenre/{id} (id=${g.genreId})}"></a>
+                <i>Edit</i>
+            </td>
+            <td>
+                <a th:href="@{/deletegenre/{id} (id=${g.genreId})}"></a>
+                <i>Delete</i>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="container">
+    <a th:href="@{/creategenre}">
+        <i>Create Genre</i>
+    </a>
+</div>
 </body>
 </html>
