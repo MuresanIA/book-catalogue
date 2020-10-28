@@ -6,6 +6,13 @@
     <title>Title</title>
 </head>
 <body>
-
+<div class="container">
+    <form th:action="@{/editgenre/{id} (id=${genre.genreId})}" th:object="genre" method="post">
+        <div>Edit genre</div>
+        <input th:field="*{genreId}" type="hidden"/>
+        <input th:field="*{genreName}" id="genre_name" type="text" placeholder="Edit genre here..." required/>
+        <button type="submit">Save</button>
+    </form>
+</div>
 </body>
 </html>
