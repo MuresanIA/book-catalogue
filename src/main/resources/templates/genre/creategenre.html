@@ -3,9 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Create Genre</title>
 </head>
 <body>
-
+<div class="container">
+    <div><p>Create a genre</p></div>
+    <form th:action="@{/creategenre}" th:object="${genre}" method="post">
+        <input th:field="*{genreName}" id="genre_name" type="text" placeholder="Create a new genre..."/>
+        <button type="submit">Create</button>
+    </form>
+</div>
 </body>
 </html>
