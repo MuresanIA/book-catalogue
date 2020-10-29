@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "book_id")
+    @Column(name = "book_id", nullable = false)
     private Long bookId;
     @Column(name = "book_name", nullable = false)
     private String bookName;

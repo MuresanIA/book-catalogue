@@ -15,7 +15,7 @@ import java.util.List;
 public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "genre_id")
+    @Column(name = "genre_id", nullable = false)
     private Long genreId;
     @Column(name = "book_genre", length = 50, nullable = false)
     private String genreName;

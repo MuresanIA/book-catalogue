@@ -23,7 +23,7 @@ public class AuthorController {
     @RequestMapping(method = RequestMethod.GET, value = "/authors")
     public String showAllAuthors(Model model) {
 
-        model.addAttribute("authors", authorService.findAllAuthors());
+        model.addAttribute("author", authorService.findAllAuthors());
 
         return "author/authors";
 
