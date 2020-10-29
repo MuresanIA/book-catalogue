@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Create Author</title>
+
+
+    <script src="/js/javascript.js"></script>
 </head>
 <body>
 
 <div class="container">
     <div><p>Create an author</p></div>
-    <form th:action="@{/createauthor}" th:object="${author}" method="post">
-        <input th:field="*{authorFirstName}" id="first_name" type="text" placeholder="Author First Name..."/>
+    <form name="createAuthor" th:action="@{/createauthor}" th:object="${author}" method="post">
+        <input th:field="*{authorFirstName}" name="firstName" type="text" placeholder="Author First Name..."/>
         <br>
-        <input th:field="*{authorMiddleName}" id="middle_name" type="text" placeholder="Author Middle Name..."/>
+        <input th:field="*{authorMiddleName}" name="middleName" type="text" placeholder="Author Middle Name..."/>
         <br>
-        <input th:field="*{authorLastName}" id="last_name" type="text" placeholder="Author Last Name..."/>
+        <input th:field="*{authorLastName}" name="lastName" type="text" placeholder="Author Last Name..."/>
         <button type="submit">Create</button>
     </form>
 </div>
