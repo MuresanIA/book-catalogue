@@ -10,17 +10,25 @@
         <thead>
         <tr>
             <td class="thead-text">
-                Author Name
+                First Name
             </td>
-
+            <td class="thead-text">
+                Middle Name
+            </td>
+            <td class="thead-text">
+                Last Name
+            </td>
             <td class="thead-text">Action</td>
 
         </tr>
         </thead>
         <tbody>
         <tr th:each="a : ${author}">
-            <td th:text="${a.authorName}"></td>
-            <td th:text="${a.bookList}"></td>
+            <td th:text="${a.authorFirstName}"></td>
+            <br>
+            <td th:text="${a.authorMiddleName}"></td>
+            <br>
+            <td th:text="${a.authorLastName}"></td>
             <td>
                 <a th:href="@{/editauthor/{id} (id = ${a.authorId})}">
                     <i>Edit</i>

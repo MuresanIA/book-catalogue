@@ -42,20 +42,20 @@ public class AuthorController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/editauthor/{id}")
-    public String editAuthor(Model model, @PathVariable Long id) {
+    public String editAuthor(Model model, @PathVariable Integer id) {
         Author author = authorService.findById(id);
         model.addAttribute("author", author);
         return "author/editauthor";
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/editauthor/{id}")
-    public String editAuthor(@ModelAttribute Author author, @PathVariable Long id) {
+    public String editAuthor(@ModelAttribute Author author, @PathVariable Integer id) {
         authorService.save(author);
         return "redirect:/authors";
     }
 
     @RequestMapping(method = RequestMethod.GET, value = ("/deleteauthor/{id}"))
-    public String deleteAuthor(@PathVariable Long id) {
+    public String deleteAuthor(@PathVariable Integer id) {
 
         authorService.deleteById(id);
         return "redirect:/authors";

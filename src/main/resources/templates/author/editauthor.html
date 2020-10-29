@@ -9,7 +9,12 @@
     <form th:action="@{/editauthor/{id}(id = ${author.authorId})}" th:object="${author}" method="post">
         <div><p>Edit author</p></div>
         <input th:field="*{authorId}" type="hidden"/>
-        <input th:field="*{authorName}" id="author_name" type="text" placeholder="Edit author here..." required/>
+        <input th:field="*{authorFirstName}" id="author_first_name" type="text" placeholder="Edit first name..." required/>
+        <br>
+        <input th:field="*{authorMiddleName}" id="author_middle_name" type="text" placeholder="Edit middle name..." required/>
+        <br>
+        <input th:field="*{authorLastName}" id="author_last_name" type="text" placeholder="Edit last name..." required/>
+        <br>
         <button type="submit">Save</button>
     </form>
 </div>

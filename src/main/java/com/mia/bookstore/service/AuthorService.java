@@ -22,14 +22,24 @@ public class AuthorService {
         return author.orElse(null);
     }
 
-    public Author findById(Long id) {
+    public Author findById(Integer id) {
 
         Optional<Author> author = Optional.ofNullable(authorRepository.findByAuthorId(id));
         return author.orElse(null);
     }
 
-    public Author findByAuthorName(String authorName) {
-        Author author = authorRepository.findByAuthorName(authorName);
+    public Author findByAuthorFirstName(String authorFirstName) {
+        Author author = authorRepository.findAuthorByFirstName(authorFirstName);
+        return author;
+    }
+
+    public Author findByAuthorMiddleName(String authorMiddleName) {
+        Author author = authorRepository.findAuthorByMiddleName(authorMiddleName);
+        return author;
+    }
+
+    public Author findByAuthorLastName(String authorLastName) {
+        Author author = authorRepository.findAuthorByLastName(authorLastName);
         return author;
     }
 
@@ -37,7 +47,7 @@ public class AuthorService {
         return authorRepository.save(author);
     }
 
-    public void deleteById(Long id) {
+    public void deleteById(Integer id) {
         authorRepository.deleteById(id);
     }
 
