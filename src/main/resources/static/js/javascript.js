@@ -1,17 +1,17 @@
-function validateFormCreateAuthor(){
-       var firstName =document.forms["createAuthor"]["firstName"];
-       var lastName = document.forms["createAuthor"]["lastName"];
+function validateFormCreateAuthor() {
+    const firstName = document.forms["createAuthor"]["firstName"].value();
+    const lastName = document.forms["createAuthor"]["lastName"].value();
 
-        if(firstName.value == ""){
-                window.alert("Please enter author's first name!")
-                firstName.focus;
-                return false;
-        }
+    if (firstName.value === "") {
+        window.alert("Please enter author's first name!");
+        firstName.focus();
+        return false;
+    }
 
-        if(lastName.value == ""){
-            window.alert("Please enter author's last name!")
-                last.focus;
-                return false;
-        }
-        return true;
+    if (lastName.value === "") {
+        window.alert("Please enter author's last name!");
+        lastName.focus();
+        return false;
+    }
+    return true;
 }
