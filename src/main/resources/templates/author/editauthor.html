@@ -6,16 +6,33 @@
 </head>
 <body>
 <div class="container">
-    <form name="edit_author" th:action="@{/editauthor/{id}(id = ${author.authorId})}" th:object="${author}" method="post">
-        <div><p>Edit author</p></div>
-        <input th:field="*{authorId}" type="hidden"/>
-        <input th:field="*{authorFirstName}" id="author_first_name" type="text" placeholder="Edit first name..." required/>
-        <br>
-        <input th:field="*{authorMiddleName}" id="author_middle_name" type="text" placeholder="Edit middle name..." required/>
-        <br>
-        <input th:field="*{authorLastName}" id="author_last_name" type="text" placeholder="Edit last name..." required/>
-        <br>
-        <button type="submit">Save</button>
+    <form name="edit_author" th:action="@{/editauthor/{id}(id = ${author.authorId})}" th:object="${author}"
+          method="post">
+        <table>
+        <tr>
+            <td><p>Author's First Name</p></td>
+            <td><input th:field="*{authorFirstName}" id="author_first_name" type="text" placeholder="Edit first name..."
+                       required/>
+            </td>
+        </tr>
+        <tr>
+            <td><p>Author's Middle Name</p></td>
+            <td><input th:field="*{authorMiddleName}" id="author_middle_name" type="text"
+                       placeholder="Edit middle name..."
+                       required/></td>
+        </tr>
+        <tr>
+            <td><p>Author's Last Name</p></td>
+            <td><input th:field="*{authorLastName}" id="author_last_name" type="text" placeholder="Edit last name..."
+                       required/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Save</button>
+            </td>
+        </tr>
+        </table>
     </form>
 </div>
 </body>
