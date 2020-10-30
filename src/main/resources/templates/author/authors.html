@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Authors</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -10,16 +14,15 @@
         <thead>
         <tr>
             <td class="thead-text">
-                First Name
+                Author's first name
             </td>
             <td class="thead-text">
-                Middle Name
+                Author's middle name
             </td>
             <td class="thead-text">
-                Last Name
+                Author's last name
             </td>
             <td class="thead-text">Action</td>
-
         </tr>
         </thead>
         <tbody>
@@ -47,26 +50,5 @@
         <i>Create Author</i>
     </a>
 </div>
-
-<!--    <div th:each="a : ${authors}">-->
-<!--        <div th:text="${a.name}"></div>-->
-
-<!--    <div>-->
-<!--        <form th:action="@{/editauthor/{id}(id = ${a.id})}" method="get">-->
-<!--            <input type="submit" value="Edit" />-->
-<!--        </form>-->
-<!--    </div>-->
-<!--    <div>-->
-<!--        <form th:action="@{/deleteauthor/{id}(id = ${a.id})}" method="get">-->
-<!--            <input th:class="delete-button-chat-rooms-form" type="submit" value="Delete"/>-->
-<!--        </form>-->
-<!--    </div>-->
-<!--    </div>-->
-<!--</div>-->
-<!--<div>-->
-<!--    <form th:action="@{/createauthor}" method="GET">-->
-<!--        <input type="submit" value="Create Author"/>-->
-<!--    </form>-->
-
 </body>
 </html>
