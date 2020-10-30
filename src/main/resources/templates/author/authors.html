@@ -10,19 +10,22 @@
 </head>
 <body>
 <div class="container">
-    <table>
+    <table th:class="highlight">
         <thead>
+        <div class="row">
+            <h5>List of authors</h5>
+        </div>
         <tr>
             <td class="thead-text">
-                Author's first name
+                <p><b>Author's first name</b></p>
             </td>
             <td class="thead-text">
-                Author's middle name
+                <p><b>Author's middle name</b></p>
             </td>
             <td class="thead-text">
-                Author's last name
+                <p><b>Author's last name</b></p>
             </td>
-            <td class="thead-text">Action</td>
+            <td class="thead-text"><p><b>Action</b></p></td>
         </tr>
         </thead>
         <tbody>
@@ -42,10 +45,11 @@
             </td>
         </tr>
         </tbody>
+
     </table>
 </div>
 <hr>
-<div class="container">
+<div th:class="container">
     <a th:href="@{/createauthor}">
         <i>Create Author</i>
     </a>
