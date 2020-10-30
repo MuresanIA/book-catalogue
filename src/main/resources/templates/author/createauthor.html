@@ -11,7 +11,6 @@
 </head>
 <body>
 <div class="row">
-
     <form name="createAuthor" th:action="@{/createauthor}"
           th:object="${author}" method="post">
         <div class="container">
@@ -20,18 +19,23 @@
             <div class="row">
                 <label for="firstName"><b>Author's first name</b></label>
                 <input th:field="*{authorFirstName}" id="firstName" type="text"
-                       placeholder="Author First Name..."/>
+                       placeholder="Author First Name..." required/>
             </div>
             <div class="row">
                 <label for="middleName"><b>Author's middle name</b></label>
                 <input th:field="*{authorMiddleName}" id="middleName" type="text"
-                       placeholder="Author Middle Name..."/>
+                       placeholder="Author Middle Name..." />
             </div>
             <div class="row">
                 <label for="lastName"><b>Author's last name</b></label>
                 <input th:field="*{authorLastName}" id="lastName" type="text"
-                       placeholder="Author Last Name..."/>
+                       placeholder="Author Last Name..." required/>
             </div>
+            <tr>
+                <td>
+                    <button type="submit">Save</button>
+                </td>
+            </tr>
         </div>
     </form>
 </div>

@@ -11,34 +11,39 @@
 
 </head>
 <body>
-<div class="container">
+<div class="row">
     <form name="edit_author" th:action="@{/editauthor/{id}(id = ${author.authorId})}" th:object="${author}"
           method="post">
-        <table>
-        <tr>
-            <td><p>Author's First Name</p></td>
-            <td><input th:field="*{authorFirstName}" id="author_first_name" type="text" placeholder="Edit first name..."
+        <div class="container">
+            <div class="row">
+                <h4>Edit author</h4>
+            </div>
+            <br>
+            <div class="row">
+                <label for="firstName"><b>Author's first name</b></label>
+                <input th:field="*{authorFirstName}" id="firstName" type="text"
+                       placeholder="Edit first name..."
                        required/>
-            </td>
-        </tr>
-        <tr>
-            <td><p>Author's Middle Name</p></td>
-            <td><input th:field="*{authorMiddleName}" id="author_middle_name" type="text"
+            </div>
+            <div class="row">
+                <label for="middleName"><b>Author's middle name</b></label>
+                <input th:field="*{authorMiddleName}" id="middleName" type="text"
                        placeholder="Edit middle name..."
-                       required/></td>
-        </tr>
-        <tr>
-            <td><p>Author's Last Name</p></td>
-            <td><input th:field="*{authorLastName}" id="author_last_name" type="text" placeholder="Edit last name..."
+                       />
+            </div>
+            <div class="row">
+                <label for="lastName"><b>Author's middle name</b></label>
+                <input th:field="*{authorLastName}" id="lastName" type="text"
+                       placeholder="Edit last name..."
                        required/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <button type="submit">Save</button>
-            </td>
-        </tr>
-        </table>
+            </div>
+
+            <tr>
+                <td>
+                    <button type="submit">Save</button>
+                </td>
+            </tr>
+        </div>
     </form>
 </div>
 </body>
