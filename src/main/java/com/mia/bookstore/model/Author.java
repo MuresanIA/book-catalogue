@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Data
 @NoArgsConstructor
@@ -17,11 +18,14 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "author_id", nullable = false)
     private Integer authorId;
-    @Column(name = "author_first_name", nullable = false)
+    @Column(name = "author_first_name", nullable = false, length = 20)
+    @Size(min = 3, max = 20)
     private String authorFirstName;
-    @Column(name = "author_middle_name", nullable = false)
+    @Column(name = "author_middle_name", nullable = false, length = 20)
+    @Size(min = 3, max = 20)
     private String authorMiddleName;
-    @Column(name = "author_last_name", nullable = false)
+    @Column(name = "author_last_name", nullable = false, length = 20)
+    @Size(min = 3, max = 20)
     private String authorLastName;
 
 }

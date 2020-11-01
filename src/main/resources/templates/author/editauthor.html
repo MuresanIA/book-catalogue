@@ -8,34 +8,40 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
 </head>
 <body>
 <div class="row">
-    <form name="edit_author" th:action="@{/editauthor/{id}(id = ${author.authorId})}" th:object="${author}"
+    <form class="col s12" name="edit_author" th:action="@{/editauthor/{id}(id = ${author.authorId})}"
+          th:object="${author}"
           method="post">
         <div class="container">
             <div class="row">
-                <h4>Edit author</h4>
+                <h5>Edit author</h5>
             </div>
             <br>
             <div class="row">
-                <label for="firstName"><b>Author's first name</b></label>
-                <input th:field="*{authorFirstName}" id="firstName" type="text"
-                       placeholder="Edit first name..."
-                       required/>
+                <div class="input-field col s12">
+                    <label class="active" for="firstName"><b>Author's first name</b></label>
+                    <input th:field="*{authorFirstName}" id="firstName" type="text" class="validate"
+                           data-length="20" placeholder="Edit first name..."
+                           required/>
+                </div>
             </div>
             <div class="row">
-                <label for="middleName"><b>Author's middle name</b></label>
-                <input th:field="*{authorMiddleName}" id="middleName" type="text"
-                       placeholder="Edit middle name..."
-                       />
+                <div class="input-field col s12">
+                    <label class="active" for="middleName"><b>Author's middle name</b></label>
+                    <input th:field="*{authorMiddleName}" id="middleName" type="text" class="validate"
+                           data-length="20" placeholder="Edit middle name..." required
+                    />
+                </div>
             </div>
             <div class="row">
-                <label for="lastName"><b>Author's middle name</b></label>
-                <input th:field="*{authorLastName}" id="lastName" type="text"
-                       placeholder="Edit last name..."
-                       required/>
+                <div class="input-field col s12">
+                    <label class="active" for="lastName"><b>Author's middle name</b></label>
+                    <input th:field="*{authorLastName}" id="lastName" type="text" class="validate"
+                           data-length="20" placeholder="Edit last name..."
+                           required/>
+                </div>
             </div>
 
             <tr>
