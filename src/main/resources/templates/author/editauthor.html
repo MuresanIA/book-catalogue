@@ -23,7 +23,7 @@
                 <div class="input-field col s12">
                     <label class="active" for="firstName"><b>Author's first name</b></label>
                     <input th:field="*{authorFirstName}" id="firstName" type="text" class="validate"
-                           data-length="20" placeholder="Edit first name..."
+                           maxlength="20" placeholder="Edit first name..."
                            required/>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                 <div class="input-field col s12">
                     <label class="active" for="middleName"><b>Author's middle name</b></label>
                     <input th:field="*{authorMiddleName}" id="middleName" type="text" class="validate"
-                           data-length="20" placeholder="Edit middle name..." required
+                           maxlength="20" placeholder="Edit middle name..." required
                     />
                 </div>
             </div>
@@ -39,7 +39,7 @@
                 <div class="input-field col s12">
                     <label class="active" for="lastName"><b>Author's middle name</b></label>
                     <input th:field="*{authorLastName}" id="lastName" type="text" class="validate"
-                           data-length="20" placeholder="Edit last name..."
+                           maxlength="20" placeholder="Edit last name..."
                            required/>
                 </div>
             </div>
