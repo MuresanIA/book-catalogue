@@ -27,11 +27,13 @@
                 <label for="middleName"><b>Author's middle name</b></label>
                 <input th:field="*{authorMiddleName}" id="middleName" type="text" class="validate"
                        maxlength="20" placeholder="Author Middle Name..."/>
+                <div id="middleNameTextRemainingCharacters">20 characters remaining</div>
             </div>
             <div class="row">
                 <label for="lastName"><b>Author's last name</b></label>
                 <input th:field="*{authorLastName}" id="lastName" type="text" class="validate"
                        maxlength="20" placeholder="Author Last Name..." required/>
+                <div id="lastNameTextRemainingCharacters">20 characters remaining</div>
             </div>
             <tr>
                 <td>
@@ -52,9 +54,27 @@
         firstNameTextRemainingChars.style.color = color;
     })
 </script>
-
 <script>
-
+    const middleName = document.getElementById('middleName');
+    const middleNameTextRemainingCharacters = document.getElementById('middleNameTextRemainingCharacters');
+    const MAX_CHARS_MIDDLE_NAME = 20;
+    middleName.addEventListener('input', () => {
+        const REMAINING_MIDDLE_NAME = MAX_CHARS_MIDDLE_NAME - middleName.value.length;
+        const COLOR_MIDDLE_NAME = REMAINING_MIDDLE_NAME < MAX_CHARS * 0.1 ? 'red' : null;
+        middleNameTextRemainingCharacters.textContent = `${REMAINING_MIDDLE_NAME} characters remaining`;
+        middleNameTextRemainingCharacters.style.color = COLOR_MIDDLE_NAME;
+    })
+</script>
+<script>
+    const lastName = document.getElementById('lastName');
+    const lastNameTextRemainingCharacters = document.getElementById('lastNameTextRemainingCharacters');
+    const MAX_CHARS_LAST_NAME = 20;
+    lastName.addEventListener('input', () => {
+        const REMAINING_LAST_NAME = MAX_CHARS_LAST_NAME - lastName.value.length;
+        const COLOR_LAST_NAME = REMAINING_LAST_NAME < MAX_CHARS_LAST_NAME * 0.1 ? 'red' : null;
+        lastNameTextRemainingCharacters.textContent = `${REMAINING_LAST_NAME} characters remaining`;
+        lastNameTextRemainingCharacters.style.color = COLOR_LAST_NAME;
+    })
 </script>
 </body>
 </html>
