@@ -8,8 +8,6 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="../../static/js/javascript.js"></script>
-
 </head>
 <body>
 <div class="row">
@@ -27,22 +25,25 @@
                     <input th:field="*{authorFirstName}" id="firstName" type="text" class="validate"
                            maxlength="20" placeholder="Edit first name..."
                            required/>
+                    <div id="editFormFirstNameRemainingCharacters">20 characters remaining</div>
+
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <label class="active" for="middleName"><b>Author's middle name</b></label>
                     <input th:field="*{authorMiddleName}" id="middleName" type="text" class="validate"
-                           maxlength="20" placeholder="Edit middle name..." required
-                    />
+                           maxlength="20" placeholder="Edit middle name..." required/>
+                    <div id="editFormMiddleNameRemainingCharacters">20 characters remaining</div>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <label class="active" for="lastName"><b>Author's middle name</b></label>
+                    <label class="active" for="lastName"><b>Author's last name</b></label>
                     <input th:field="*{authorLastName}" id="lastName" type="text" class="validate"
                            maxlength="20" placeholder="Edit last name..."
                            required/>
+                    <div id="editFormLastNameRemainingCharacters">20 characters remaining</div>
                 </div>
             </div>
 
@@ -54,5 +55,38 @@
         </div>
     </form>
 </div>
+<script>
+    const firstName = document.getElementById('firstName');
+    const editFormFirstNameRemainingCharacters = document.getElementById('editFormFirstNameRemainingCharacters');
+    const MAX_CHARS = 20;
+    firstName.addEventListener('input', () => {
+        const remaining = MAX_CHARS - firstName.value.length;
+        const color = remaining < MAX_CHARS * 0.1 ? 'red' : null;
+        editFormFirstNameRemainingCharacters.textContent = `${remaining} characters remaining`;
+        editFormFirstNameRemainingCharacters.style.color = color;
+    })
+</script>
+<script>
+    const middleName = document.getElementById('middleName');
+    const editFormMiddleNameRemainingCharacters = document.getElementById('editFormMiddleNameRemainingCharacters');
+    const MAX_CHARS_MIDDLE_NAME = 20;
+    middleName.addEventListener('input', () => {
+        const REMAINING_MIDDLE_NAME_CHARACTERS = MAX_CHARS_MIDDLE_NAME - middleName.value.length;
+        const COLOR_MIDDLE_NAME = REMAINING_MIDDLE_NAME_CHARACTERS < MAX_CHARS_MIDDLE_NAME * 0.1 ? 'red' : null;
+        editFormMiddleNameRemainingCharacters.textContent = `${REMAINING_MIDDLE_NAME_CHARACTERS} characters remaining`;
+        editFormMiddleNameRemainingCharacters.style.color = COLOR_MIDDLE_NAME;
+    })
+</script>
+<script>
+    const lastName = document.getElementById('lastName');
+    const editFormLastNameRemainingCharacters = document.getElementById('editFormLastNameRemainingCharacters');
+    const MAX_CHARS_LAST_NAME = 20;
+    lastName.addEventListener('input', () => {
+        const REMAINING_LAST_NAME_CHARACTERS = MAX_CHARS_LAST_NAME - lastName.value.length;
+        const COLOR_LAST_NAME = REMAINING_LAST_NAME_CHARACTERS < MAX_CHARS_LAST_NAME * 0.1 ? 'red' : null;
+        editFormLastNameRemainingCharacters.textContent = `${REMAINING_LAST_NAME_CHARACTERS} characters remaining`;
+        editFormLastNameRemainingCharacters.style.color = COLOR_LAST_NAME;
+    })
+</script>
 </body>
 </html>
