@@ -18,18 +18,18 @@
             <br>
             <div class="row">
                 <label for="firstName"><b>Author's first name</b></label>
-                <input th:field="*{authorFirstName}" id="firstName" type="text"
-                       placeholder="Author First Name..." required/>
+                <input th:field="*{authorFirstName}" id="firstName" type="text" class="validate"
+                       maxlength="20" placeholder="Author First Name..." required/>
             </div>
             <div class="row">
                 <label for="middleName"><b>Author's middle name</b></label>
-                <input th:field="*{authorMiddleName}" id="middleName" type="text"
-                       placeholder="Author Middle Name..." />
+                <input th:field="*{authorMiddleName}" id="middleName" type="text" class="validate"
+                       maxlength="20" placeholder="Author Middle Name..."/>
             </div>
             <div class="row">
                 <label for="lastName"><b>Author's last name</b></label>
-                <input th:field="*{authorLastName}" id="lastName" type="text"
-                       placeholder="Author Last Name..." required/>
+                <input th:field="*{authorLastName}" id="lastName" type="text" class="validate"
+                       maxlength="20" placeholder="Author Last Name..." required/>
             </div>
             <tr>
                 <td>
