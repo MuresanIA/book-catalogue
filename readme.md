@@ -4,8 +4,8 @@
 
 - Java
 - JavaScript
-- HTML
-- CSS
+- Hypertext Markup Language
+- Cascade Style Sheet
 - Thymeleaf
 - Spring MVC
 - Spring WEB
