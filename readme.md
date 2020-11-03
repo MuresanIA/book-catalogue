@@ -4,6 +4,8 @@
 
 - Java
 - JavaScript
+- HTML
+- CSS
 - Thymeleaf
 - Spring MVC
 - Spring WEB
