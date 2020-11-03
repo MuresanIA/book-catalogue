@@ -3,24 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Authors</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
 <div class="container">
-    <table>
+    <table th:class="highlight">
         <thead>
+        <div class="row">
+            <h5>Authors</h5>
+        </div>
         <tr>
             <td class="thead-text">
-                Author Name
+                <p><b>Author's first name</b></p>
             </td>
-
-            <td class="thead-text">Action</td>
-
+            <td class="thead-text">
+                <p><b>Author's middle name</b></p>
+            </td>
+            <td class="thead-text">
+                <p><b>Author's last name</b></p>
+            </td>
+            <td class="thead-text"><p><b>Action</b></p></td>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="a : ${authors}">
-            <td th:text="${a.authorName}"></td>
-            <td th:text="${a.bookList}"></td>
+        <tr th:each="a : ${author}">
+            <td th:text="${a.authorFirstName}"></td>
+            <br>
+            <td th:text="${a.authorMiddleName}"></td>
+            <br>
+            <td th:text="${a.authorLastName}"></td>
             <td>
                 <a th:href="@{/editauthor/{id} (id = ${a.authorId})}">
                     <i>Edit</i>
@@ -31,34 +45,14 @@
             </td>
         </tr>
         </tbody>
+
     </table>
 </div>
 <hr>
-<div class="container">
+<div th:class="container">
     <a th:href="@{/createauthor}">
         <i>Create Author</i>
     </a>
 </div>
-
-<!--    <div th:each="a : ${authors}">-->
-<!--        <div th:text="${a.name}"></div>-->
-
-<!--    <div>-->
-<!--        <form th:action="@{/editauthor/{id}(id = ${a.id})}" method="get">-->
-<!--            <input type="submit" value="Edit" />-->
-<!--        </form>-->
-<!--    </div>-->
-<!--    <div>-->
-<!--        <form th:action="@{/deleteauthor/{id}(id = ${a.id})}" method="get">-->
-<!--            <input th:class="delete-button-chat-rooms-form" type="submit" value="Delete"/>-->
-<!--        </form>-->
-<!--    </div>-->
-<!--    </div>-->
-<!--</div>-->
-<!--<div>-->
-<!--    <form th:action="@{/createauthor}" method="GET">-->
-<!--        <input type="submit" value="Create Author"/>-->
-<!--    </form>-->
-
 </body>
 </html>

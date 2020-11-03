@@ -4,11 +4,18 @@ import com.mia.bookstore.model.Author;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-public interface AuthorRepository extends JpaRepository<Author, Long> {
+public interface AuthorRepository extends JpaRepository<Author, Integer> {
 
-    @Query("FROM author a WHERE a.authorName = :authorName")
-     Author findByAuthorName(String authorName);
+    @Query("FROM author a WHERE a.authorFirstName = :authorFirstName")
+    Author findAuthorByFirstName(String authorFirstName);
 
-    Author findByAuthorId(Long id);
+    @Query("FROM author a WHERE a.authorMiddleName = :authorMiddleName")
+    Author findAuthorByMiddleName(String authorMiddleName);
+
+    @Query("FROM author a WHERE a.authorLastName = :authorLastName")
+    Author findAuthorByLastName(String authorLastName);
+
+
+    Author findByAuthorId(Integer id);
 
 }
