@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 <div class="container">
@@ -37,21 +38,20 @@
             <td th:text="${a.authorLastName}"></td>
             <td>
                 <a th:href="@{/editauthor/{id} (id = ${a.authorId})}">
-                    <i>Edit</i>
+                    <i class="material-icons">edit</i>
                 </a>
-                <a th:href="@{/deleteauthor/{id} (id = ${a.authorId})}">
-                    <i>Delete</i>
+                <a th:href="@{/deleteauthor/{id} (id = ${a.authorId})}"
+                   onclick="return confirm('Are you sure you want to delete this item?');">
+                    <i class="material-icons">delete</i>
                 </a>
             </td>
         </tr>
         </tbody>
-
     </table>
 </div>
-<hr>
-<div th:class="container">
+<div class="container">
     <a th:href="@{/createauthor}">
-        <i>Create Author</i>
+        <i class="material-icons">library_add</i>
     </a>
 </div>
 </body>

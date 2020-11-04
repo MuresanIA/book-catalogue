@@ -14,7 +14,7 @@
 - PostgreSQL
 - SendGrid
 - JPA
-- Hibernate
+- Hibernate 
 
 
 ### Project status in progress.
