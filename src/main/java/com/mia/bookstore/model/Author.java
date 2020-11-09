@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -30,6 +31,6 @@ public class Author {
     private String authorLastName;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "author")
-    private Set<Books> books;
+    private List<Books> books;
 
 }
