@@ -8,6 +8,8 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/main.css}" xmlns:th="http://www.thymeleaf.org"/>
+
 </head>
 <body>
 <div class="row">
@@ -46,10 +48,9 @@
                     <div id="editFormLastNameRemainingCharacters">20 characters remaining</div>
                 </div>
             </div>
-
             <tr>
                 <td>
-                    <button type="submit">Save</button>
+                    <button th:class="button" type="submit"><span>Save</span></button>
                 </td>
             </tr>
         </div>
