@@ -1,6 +1,7 @@
 package com.mia.bookstore.service;
 
 import com.mia.bookstore.model.Author;
+import com.mia.bookstore.model.Books;
 import com.mia.bookstore.repository.AuthorRepository;
 import org.springframework.stereotype.Service;
 
@@ -51,4 +52,7 @@ public class AuthorService {
         authorRepository.deleteById(id);
     }
 
+    public Optional<List<Books>> findBooksByAuthors(Integer id) {
+        return Optional.ofNullable(authorRepository.findById(id).get().getBooks());
+    }
 }

@@ -61,5 +61,11 @@ public class AuthorController {
         return "redirect:/authors";
 
     }
+
+    @RequestMapping(method = RequestMethod.GET, value = ("/author/{id}/books"))
+    public String viewAuthorsBooks(Model model, @PathVariable Integer id){
+        model.addAttribute("books", authorService.findBooksByAuthors(id));
+        return "authors/viewbooks";
+    }
 }
 
