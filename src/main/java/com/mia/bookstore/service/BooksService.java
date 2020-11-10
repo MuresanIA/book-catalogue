@@ -20,8 +20,8 @@ public class BooksService {
         return books.orElse(null);
     }
 
-    public Books findByBookById(Integer id) {
-        Optional<Books> books = Optional.ofNullable(booksRepository.findByBookById(id));
+    public Books findBooksById(Integer id) {
+        Optional<Books> books = Optional.ofNullable(booksRepository.findByBookId(id));
         return books.orElse(null);
     }
 
@@ -31,6 +31,5 @@ public class BooksService {
 
     public void deleteById(Integer id) {
         booksRepository.deleteById(id);
-        ;
     }
 }

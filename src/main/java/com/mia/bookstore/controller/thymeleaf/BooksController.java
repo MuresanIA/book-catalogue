@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class BooksController {
-    @Autowired
-    public BooksService booksService;
+    public final BooksService booksService;
+
+    public BooksController(BooksService booksService) {
+        this.booksService = booksService;
+    }
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/books")
@@ -38,7 +41,7 @@ public class BooksController {
 
     @RequestMapping(method = RequestMethod.GET, value = ("/editbooks/{id}"))
     public String editBooks(Model model, @PathVariable Integer id) {
-        Books books = booksService.findByBookById(id);
+        Books books = booksService.findBooksById(id);
         model.addAttribute("books", books);
         return "books/editbooks";
     }
