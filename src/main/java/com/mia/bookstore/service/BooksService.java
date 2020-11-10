@@ -15,21 +15,21 @@ public class BooksService {
         this.booksRepository = booksRepository;
     }
 
-    private List<Books> findAllBooks() {
+    public List<Books> findAllBooks() {
         Optional<List<Books>> books = Optional.of(booksRepository.findAll());
         return books.orElse(null);
     }
 
-    private Books findByBookById(Integer id) {
+    public Books findByBookById(Integer id) {
         Optional<Books> books = Optional.ofNullable(booksRepository.findByBookById(id));
         return books.orElse(null);
     }
 
-    private Books save(Books books) {
+    public Books save(Books books) {
         return booksRepository.save(books);
     }
 
-    private void deleteById(Integer id) {
+    public void deleteById(Integer id) {
         booksRepository.deleteById(id);
         ;
     }
