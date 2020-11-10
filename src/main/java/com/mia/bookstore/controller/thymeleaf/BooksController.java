@@ -45,7 +45,13 @@ public class BooksController {
 
     @RequestMapping(method = RequestMethod.POST, value = ("/editbooks/{id}"))
     public String editBooks(@ModelAttribute Books books, @PathVariable Integer id){
-
+        booksService.save(books);
+        return "redirect:/books";
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = ("/deletebooks/{id}"))
+    public String deleteBooks(@PathVariable Integer id){
+        booksService.deleteById(id);
+        return "redirect:/books";
+    }
 }
