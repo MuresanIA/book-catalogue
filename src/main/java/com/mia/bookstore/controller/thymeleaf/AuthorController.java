@@ -2,7 +2,6 @@ package com.mia.bookstore.controller.thymeleaf;
 
 import com.mia.bookstore.model.Author;
 import com.mia.bookstore.service.AuthorService;
-import com.mia.bookstore.service.BooksService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,11 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class AuthorController {
 
     private final AuthorService authorService;
-    private final BooksService booksService;
 
-    public AuthorController(AuthorService authorService, BooksService booksService) {
+    public AuthorController(AuthorService authorService) {
         this.authorService = authorService;
-        this.booksService = booksService;
+
     }
 
 

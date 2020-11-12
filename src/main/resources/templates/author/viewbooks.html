@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>View Books</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/main.css}" xmlns:th="http://www.thymeleaf.org"/>
+
 </head>
 <body>
 <div class="container">
@@ -43,13 +50,15 @@
             <td th:text="${b.bookYearRelease}"></td>
             <br>
             <td th:text="${b.bookLanguage}"></td>
-            <a th:href="${/editbooks/{id} (id = ${b.bookId})}">
+            <td>
+            <a th:href="@{/editbooks/{id} (id = ${b.bookId})}">
                 <i class="material-icons">edit</i>
             </a>
             <a th:href="@{/deletebooks/{id}(id = ${b.bookId})}"
                onclick="return confirm('Are you sure you want to delete this item?');">
                 <i class="material-icons">delete</i>
             </a>
+            </td>
         </tr>
         </tbody>
     </table>

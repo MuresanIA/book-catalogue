@@ -14,7 +14,7 @@
 <div class="row">
 
     <form name="edit_book" th:action="${/editbooks/{id}(id= ${book.bookId})}"
-          th:object="${book}"
+          th:object="${books}"
           method="post">
         <div class="container">
             <div class="row">
