@@ -31,6 +31,7 @@ public class BooksController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/createbooks")
     public String createBooks(Model model) {
+        model.addAttribute("authors", authorService.findAllAuthors());
         model.addAttribute("books", new Books());
         return "books/createbooks";
     }
@@ -45,6 +46,7 @@ public class BooksController {
     public String editBooks(Model model, @PathVariable Integer id) {
         Books books = booksService.findBooksById(id);
         model.addAttribute("books", books);
+        model.addAttribute("authors", authorService.findAllAuthors());
         return "books/editbooks";
     }
 

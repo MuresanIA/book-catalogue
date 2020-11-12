@@ -34,6 +34,7 @@ public class AuthorController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/createauthor")
     public String createAuthor(Model model) {
+//        model.addAttribute("books", booksService.findAllBooks());
         model.addAttribute("author", new Author());
         return "author/createauthor";
     }
