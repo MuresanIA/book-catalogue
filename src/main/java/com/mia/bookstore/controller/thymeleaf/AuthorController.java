@@ -3,7 +3,6 @@ package com.mia.bookstore.controller.thymeleaf;
 import com.mia.bookstore.model.Author;
 import com.mia.bookstore.service.AuthorService;
 import com.mia.bookstore.service.BooksService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
