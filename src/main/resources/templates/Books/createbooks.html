@@ -19,16 +19,32 @@
             <div class="row">
                 <label for="bookName"><p><b>Name</b></p></label>
                 <input th:field="*{bookName}" id="bookName" type="text" class="validate"
-                maxlength="20" placeholder="Book name..." required />
+                       maxlength="20" placeholder="Book name..." required/>
                 <div id="bookNameTextRemainingCharacters">20 characters remaining</div>
             </div>
             <div class="row">
                 <label for="bookGenre"><p><b>Genre</b></p></label>
                 <input th:field="*{bookGenre}" id="bookGenre" type="text" class="validate"
-                maxlength="20" placeholder="Book genre..." />
+                       maxlength="20" placeholder="Book genre..."/>
                 <div id="bookGenreTextRemainingCharacters">20 characters remaining</div>
             </div>
-
+            <div class="row">
+                <label for="bookYearRelease"><p><b>Release</b></p></label>
+                <input th:field="*{bookYearRelease}" id="bookYearRelease" type="number" class="validate"
+                       maxlength="20" placeholder="Book release..."/>
+                <div id="bookYearReleaseRemainingCharacters">20 characters remaining</div>
+            </div>
+            <div class="row">
+                <label for="bookLanguage"><p><b>Language</b></p></label>
+                <input th:field="*{bookLanguage}" id="bookLanguage" type="text" class="validate"
+                       maxlength="20" placeholder="Book language..."/>
+                <div id="bookLanguageRemainingCharacters">20 characters remaining</div>
+            </div>
+            <tr>
+                <td>
+                    <button th:class="button" type="submit"><span>Save</span></button>
+                </td>
+            </tr>
         </div>
     </form>
 </div>
