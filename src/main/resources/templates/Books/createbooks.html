@@ -3,8 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Create Books</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/main.css}" xmlns:th="http://www.thymeleaf.org"/>
 </head>
 <body>
+<div class="row">
+    <form name="createbooks" th:action="@{/createbooks}"
+          th:object="${books}" method="post">
+        <div class="container">
+            <div class="row"><h5>Create books</h5></div>
+            <br>
+            <div class="row">
+                <label for="bookName"><p><b>Name</b></p></label>
+                <input th:field="*{bookName}" id="bookName" type="text" class="validate"
+                maxlength="20" placeholder="Book name..." required />
+                <div id="bookNameTextRemainingCharacters">20 characters remaining</div>
+            </div>
+            <div class="row">
+                <label for="bookGenre"><p><b>Genre</b></p></label>
+                <input th:field="*{bookGenre}" id="bookGenre" type="text" class="validate"
+                maxlength="20" placeholder="Book genre..." />
+                <div id="bookGenreTextRemainingCharacters">20 characters remaining</div>
+            </div>
 
+        </div>
+    </form>
+</div>
 </body>
 </html>
