@@ -1,6 +1,7 @@
 package com.mia.bookstore.controller.thymeleaf;
 
 import com.mia.bookstore.model.Books;
+import com.mia.bookstore.service.AuthorService;
 import com.mia.bookstore.service.BooksService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,10 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class BooksController {
-    public final BooksService booksService;
+    private final BooksService booksService;
+    private final AuthorService authorService;
 
-    public BooksController(BooksService booksService) {
+    public BooksController(BooksService booksService, AuthorService authorService) {
         this.booksService = booksService;
+        this.authorService = authorService;
     }
 
 
@@ -46,13 +49,13 @@ public class BooksController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = ("/editbooks/{id}"))
-    public String editBooks(@ModelAttribute Books books, @PathVariable Integer id){
+    public String editBooks(@ModelAttribute Books books, @PathVariable Integer id) {
         booksService.save(books);
         return "redirect:/books";
     }
 
     @RequestMapping(method = RequestMethod.GET, value = ("/deletebooks/{id}"))
-    public String deleteBooks(@PathVariable Integer id){
+    public String deleteBooks(@PathVariable Integer id) {
         booksService.deleteById(id);
         return "redirect:/books";
     }
