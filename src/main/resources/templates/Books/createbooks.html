@@ -30,9 +30,8 @@
             </div>
             <div class="row">
                 <label for="bookYearRelease"><p><b>Release</b></p></label>
-                <input th:field="*{bookYearRelease}" id="bookYearRelease" type="number" class="validate"
-                       maxlength="20" placeholder="Book release..."/>
-                <div id="bookYearReleaseRemainingCharacters">20 characters remaining</div>
+                <input th:field="*{bookYearRelease}" id="bookYearRelease" type="date" class="validate"
+                        placeholder="Book release..."/>
             </div>
             <div class="row">
                 <label for="bookLanguage"><p><b>Language</b></p></label>
