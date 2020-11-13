@@ -61,5 +61,16 @@
         </div>
     </form>
 </div>
+<script>
+    const bookName = document.getElementById('bookName');
+    const editFormBookNameRemainingCharacters = document.getElementById('editFormBookNameRemainingCharacters');
+    const maxCharsBookName = 20;
+    bookName.addEventListener('input', () => {
+        const remainingBookNameCharacters = maxCharsBookName - bookName.value.length;
+        const colorBookName = remainingBookNameCharacters < maxCharsBookName * 0.1 ? 'red' : null;
+        const editFormBookNameRemainingCharacters.textContent = `${remainingBookNameCharacters} characters remaining`;
+        const editFormBookNameRemainingCharacters.style.color = colorBookName;
+    })
+</script>
 </body>
 </html>
