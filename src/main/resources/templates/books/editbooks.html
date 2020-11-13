@@ -63,13 +63,12 @@
 <script>
     const bookName = document.getElementById("bookName");
     const editFormBookNameRemainingCharacters = document.getElementById('editFormBookNameRemainingCharacters');
-    const bookNameMaxCharactersRemaining = 20;
+    const bookNameMaxCharacters = 20;
     bookName.addEventListener('input', () => {
-        const remainingMiddleNameCharacters = bookNameMaxCharactersRemaining - bookName.value.length;
-        const colorBookName = remainingMiddleNameCharacters < bookNameMaxCharactersRemaining * 0.1 ? 'red' : null;
-        editFormBookNameRemainingCharacters.textContent = `${bookNameMaxCharactersRemaining} characters remaining`;
+        const bookNameRemainingCharacters = bookNameMaxCharacters - bookName.value.length;
+        const colorBookName = bookNameRemainingCharacters < bookNameMaxCharacters * 0.1 ? 'red' : null;
+        editFormBookNameRemainingCharacters.textContent = `${bookNameRemainingCharacters} characters remaining`;
         editFormBookNameRemainingCharacters.style.color = colorBookName;
-
     })
 </script>
 </body>

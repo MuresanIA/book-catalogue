@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Data
 @AllArgsConstructor
@@ -23,7 +24,7 @@ public class Books {
     @Column(name = "book_genre", nullable = false, length = 20)
     private String bookGenre;
     @Column(name = "book_year_release", nullable = false, length = 20)
-    private Integer bookYearRelease;
+    private Date bookYearRelease;
     @Column(name = "book_language", nullable = false, length = 20)
     private String bookLanguage;
     @JsonIgnore
