@@ -13,14 +13,13 @@
 <body>
 <div class="row">
 
-    <form name="edit_book" th:action="${/editbooks/{id}(id= ${book.bookId})}"
+    <form name="edit_book" th:action="@{/editbooks/{id}(id= ${books.bookId})}"
           th:object="${books}"
           method="post">
         <div class="container">
             <div class="row">
                 <h5>Edit books</h5>
             </div>
-
             <br>
             <div class="row">
                 <div>
@@ -42,7 +41,7 @@
                 <div>
                     <label class="active" for="bookYearRelease"><p><b>Release</b></p></label>
                     <input th:object="*{bookYearRelease}" id="bookYearRelease" type="date" class="validate"
-                            placeholder="Release..." required/>
+                           placeholder="Release..." required/>
                 </div>
             </div>
             <div class="row">
@@ -62,26 +61,16 @@
     </form>
 </div>
 <script>
-    const bookName = document.getElementById('bookName');
+    const bookName = document.getElementById("bookName");
     const editFormBookNameRemainingCharacters = document.getElementById('editFormBookNameRemainingCharacters');
-    const maxCharsBookName = 20;
+    const bookNameMaxCharactersRemaining = 20;
     bookName.addEventListener('input', () => {
-        const remainingBookNameCharacters = maxCharsBookName - bookName.value.length;
-        const colorBookName = remainingBookNameCharacters < maxCharsBookName * 0.1 ? 'red' : null;
-        const editFormBookNameRemainingCharacters.textContent = `${remainingBookNameCharacters} characters remaining`;
-        const editFormBookNameRemainingCharacters.style.color = colorBookName;
+        const remainingMiddleNameCharacters = bookNameMaxCharactersRemaining - bookName.value.length;
+        const colorBookName = remainingMiddleNameCharacters < bookNameMaxCharactersRemaining * 0.1 ? 'red' : null;
+        editFormBookNameRemainingCharacters.textContent = `${bookNameMaxCharactersRemaining} characters remaining`;
+        editFormBookNameRemainingCharacters.style.color = colorBookName;
+
     })
-</script>
-<script>
-    const bookGenre = document.getElementById('bookGenre');
-    const editFormBookGenreRemainingCharacters = document.getElementById('editFormBookGenreRemainingCharacters');
-    const maxCharsBookGenre = 20;
-    bookGenre.addEventListener('input', () => {
-    const remainingBookGenreCharacters = maxCharsBookGenre - bookGenre.value.length;
-    const colorBookGenre = remainingBookGenreCharacters <  maxCharsBookGenre * 0.1 ? 'red' : null;
-    const editFormBookGenreRemainingCharacters.textContent = `${remainingBookGenreCharacters} characters remaining`;
-    const editFormBookGenreRemainingCharacters.style.color = colorBookGenre;
-    });
 </script>
 </body>
 </html>
