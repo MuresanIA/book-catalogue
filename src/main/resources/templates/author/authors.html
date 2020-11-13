@@ -56,6 +56,9 @@
                    onclick="return confirm('Are you sure you want to delete this item?');">
                     <i class="material-icons">delete</i>
                 </a>
+                <a th:href="@{/author/{id}/books(id = ${a.authorId})}" >
+                    <i>test</i>
+                </a>
             </td>
         </tr>
         </tbody>
