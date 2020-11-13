@@ -37,7 +37,7 @@
                 <label for="bookLanguage"><p><b>Language</b></p></label>
                 <input th:field="*{bookLanguage}" id="bookLanguage" type="text" class="validate"
                        maxlength="20" placeholder="Book language..."/>
-                <div id="bookLanguageRemainingCharacters">20 characters remaining</div>
+                <div id="bookLanguageTextRemainingCharacters">20 characters remaining</div>
             </div>
             <tr>
                 <td>
@@ -67,6 +67,17 @@
         const bookGenreColor = bookGenreRemainingCharacters < bookGenreMaxCharacters * 0.1 ? 'red' : null;
         bookGenreTextRemainingCharacters.textContent = `${bookGenreRemainingCharacters} characters remaining`;
         bookGenreTextRemainingCharacters.style.color = bookGenreColor;
+    })
+</script>
+<script>
+    const bookLanguage = document.getElementById('bookLanguage');
+    const bookLanguageTextRemainingCharacters = document.getElementById('bookLanguageTextRemainingCharacters');
+    const bookLanguageMaxCharacters = 20;
+    bookLanguage.addEventListener('input', () => {
+        const remainingBookLanguageCharacters = bookLanguageMaxCharacters - bookLanguage.value.length;
+        const bookLanguageColor = remainingBookLanguageCharacters < bookLanguageMaxCharacters * 0.1 ? 'red' : null;
+        bookLanguageTextRemainingCharacters.textContent = `${remainingBookLanguageCharacters} characters remaining`;
+        bookLanguageTextRemainingCharacters.style.color = bookLanguageColor;
     })
 </script>
 </body>
