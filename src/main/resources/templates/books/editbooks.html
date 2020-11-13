@@ -71,5 +71,19 @@
         editFormBookNameRemainingCharacters.style.color = colorBookName;
     })
 </script>
+<script>
+    const bookGenre = document.getElementById('bookGenre');
+    const editFormBookGenreRemainingCharacters = document.getElementById('editFormBookGenreRemainingCharacters');
+    const bookGenreMaxCharacters = 20;
+    bookGenre.addEventListener('input', () => {
+        const bookGenreRemainingCharacters = bookGenreMaxCharacters - bookGenre.value.length;
+        const colorBookGenre = bookGenreRemainingCharacters < bookGenreMaxCharacters * 0.1 ? 'red' : null;
+        editFormBookGenreRemainingCharacters.textContent = `${bookGenreRemainingCharacters} characters remaining`;
+        editFormBookGenreRemainingCharacters.style.color = colorBookGenre;
+    })
+</script>
+<script>
+
+</script>
 </body>
 </html>
