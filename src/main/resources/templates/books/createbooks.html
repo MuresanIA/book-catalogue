@@ -31,7 +31,7 @@
             <div class="row">
                 <label for="bookYearRelease"><p><b>Release</b></p></label>
                 <input th:field="*{bookYearRelease}" id="bookYearRelease" type="date" class="validate"
-                        placeholder="Book release..."/>
+                       placeholder="Book release..."/>
             </div>
             <div class="row">
                 <label for="bookLanguage"><p><b>Language</b></p></label>
@@ -56,6 +56,17 @@
         const bookNameColor = bookNameRemainingCharacters < bookNameMaxCharacters * 0.1 ? 'red' : null;
         bookNameTextRemainingCharacters.textContent = `${bookNameRemainingCharacters} characters remaining`;
         bookNameTextRemainingCharacters.style.color = bookNameColor;
+    })
+</script>
+<script>
+    const bookGenre = document.getElementById('bookGenre');
+    const bookGenreTextRemainingCharacters = document.getElementById('bookGenreTextRemainingCharacters');
+    const bookGenreMaxCharacters = 20;
+    bookGenre.addEventListener('input', () => {
+        const bookGenreRemainingCharacters = bookGenreMaxCharacters - bookGenre.value.length;
+        const bookGenreColor = bookGenreRemainingCharacters < bookGenreMaxCharacters * 0.1 ? 'red' : null;
+        bookGenreTextRemainingCharacters.textContent = `${bookGenreRemainingCharacters} characters remaining`;
+        bookGenreTextRemainingCharacters.style.color = bookGenreColor;
     })
 </script>
 </body>
