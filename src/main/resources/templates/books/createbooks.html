@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Books</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/main.css}" xmlns:th="http://www.thymeleaf.org"/>
+</head>
+<body>
+<div class="row">
+    <form name="createbooks" th:action="@{/createbooks}"
+          th:object="${books}" method="post">
+        <div class="container">
+            <div class="row"><h5>Create books</h5></div>
+            <br>
+            <div class="row">
+                <label for="bookName"><p><b>Name</b></p></label>
+                <input th:field="*{bookName}" id="bookName" type="text" class="validate"
+                       maxlength="20" placeholder="Book name..." required/>
+                <div id="bookNameTextRemainingCharacters">20 characters remaining</div>
+            </div>
+            <div class="row">
+                <label for="bookGenre"><p><b>Genre</b></p></label>
+                <input th:field="*{bookGenre}" id="bookGenre" type="text" class="validate"
+                       maxlength="20" placeholder="Book genre..."/>
+                <div id="bookGenreTextRemainingCharacters">20 characters remaining</div>
+            </div>
+            <div class="row">
+                <label for="bookYearRelease"><p><b>Release</b></p></label>
+                <input th:field="*{bookYearRelease}" id="bookYearRelease" type="date" pattern="dd-MM-yyyy"  class="validate"
+                       placeholder="Book release..."/>
+            </div>
+            <div class="row">
+                <label for="bookLanguage"><p><b>Language</b></p></label>
+                <input th:field="*{bookLanguage}" id="bookLanguage" type="text" class="validate"
+                       maxlength="20" placeholder="Book language..."/>
+                <div id="bookLanguageTextRemainingCharacters">20 characters remaining</div>
+            </div>
+            <tr>
+                <td>
+                    <button th:class="button" type="submit"><span>Save</span></button>
+                </td>
+            </tr>
+        </div>
+    </form>
+</div>
+<script>
+    const bookName = document.getElementById('bookName');
+    const bookNameTextRemainingCharacters = document.getElementById('bookNameTextRemainingCharacters');
+    const bookNameMaxCharacters = 20;
+    bookName.addEventListener('input', () => {
+        const bookNameRemainingCharacters = bookNameMaxCharacters - bookName.value.length;
+        const bookNameColor = bookNameRemainingCharacters < bookNameMaxCharacters * 0.1 ? 'red' : null;
+        bookNameTextRemainingCharacters.textContent = `${bookNameRemainingCharacters} characters remaining`;
+        bookNameTextRemainingCharacters.style.color = bookNameColor;
+    })
+</script>
+<script>
+    const bookGenre = document.getElementById('bookGenre');
+    const bookGenreTextRemainingCharacters = document.getElementById('bookGenreTextRemainingCharacters');
+    const bookGenreMaxCharacters = 20;
+    bookGenre.addEventListener('input', () => {
+        const bookGenreRemainingCharacters = bookGenreMaxCharacters - bookGenre.value.length;
+        const bookGenreColor = bookGenreRemainingCharacters < bookGenreMaxCharacters * 0.1 ? 'red' : null;
+        bookGenreTextRemainingCharacters.textContent = `${bookGenreRemainingCharacters} characters remaining`;
+        bookGenreTextRemainingCharacters.style.color = bookGenreColor;
+    })
+</script>
+<script>
+    const bookLanguage = document.getElementById('bookLanguage');
+    const bookLanguageTextRemainingCharacters = document.getElementById('bookLanguageTextRemainingCharacters');
+    const bookLanguageMaxCharacters = 20;
+    bookLanguage.addEventListener('input', () => {
+        const remainingBookLanguageCharacters = bookLanguageMaxCharacters - bookLanguage.value.length;
+        const bookLanguageColor = remainingBookLanguageCharacters < bookLanguageMaxCharacters * 0.1 ? 'red' : null;
+        bookLanguageTextRemainingCharacters.textContent = `${remainingBookLanguageCharacters} characters remaining`;
+        bookLanguageTextRemainingCharacters.style.color = bookLanguageColor;
+    })
+</script>
+</body>
+</html>

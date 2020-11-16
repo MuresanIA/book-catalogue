@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Authors</title>
+    <title>View Books</title>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Compiled and minified JavaScript -->
@@ -16,25 +16,30 @@
     <table th:class="highlight">
         <thead>
         <div class="row">
-            <h5>Authors</h5>
+            <h5>Books</h5>
         </div>
         <tr>
             <td class="thead-text">
                 <p>
-                    <b>Author's first name</b>
+                    <b>Name</b>
                 </p>
             </td>
             <td class="thead-text">
                 <p>
-                    <b>Author's middle name</b>
+                    <b>Genre</b>
                 </p>
             </td>
             <td class="thead-text">
                 <p>
-                    <b>Author's last name</b>
+                    <b>Release</b>
                 </p>
             </td>
             <td class="thead-text">
+                <p>
+                    <b>Language</b>
+                </p>
+            </td>
+            <td>
                 <p>
                     <b>Action</b>
                 </p>
@@ -42,30 +47,29 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="a : ${author}">
-            <td th:text="${a.authorFirstName}"></td>
+        <tr th:each="b : ${books}">
+            <td th:text="${b.bookName}"></td>
             <br>
-            <td th:text="${a.authorMiddleName}"></td>
+            <td th:text="${b.bookGenre}"></td>
             <br>
-            <td th:text="${a.authorLastName}"></td>
+            <td th:text="${b.bookYearRelease}"></td>
+            <br>
+            <td th:text="${b.bookLanguage}"></td>
             <td>
-                <a th:href="@{/editauthor/{id} (id = ${a.authorId})}">
-                    <i class="material-icons">edit</i>
-                </a>
-                <a th:href="@{/deleteauthor/{id} (id = ${a.authorId})}"
-                   onclick="return confirm('Are you sure you want to delete this item?');">
-                    <i class="material-icons">delete</i>
-                </a>
-                <a th:href="@{/author/{id}/books(id = ${a.authorId})}" >
-                    <i>test</i>
-                </a>
+            <a th:href="@{/editbooks/{id} (id = ${b.bookId})}">
+                <i class="material-icons">edit</i>
+            </a>
+            <a th:href="@{/deletebooks/{id}(id = ${b.bookId})}"
+               onclick="return confirm('Are you sure you want to delete this item?');">
+                <i class="material-icons">delete</i>
+            </a>
             </td>
         </tr>
         </tbody>
     </table>
 </div>
 <div class="container">
-    <a th:href="@{/createauthor}">
+    <a th:href="@{/createbooks}">
         <i class="material-icons">library_add</i>
     </a>
 </div>

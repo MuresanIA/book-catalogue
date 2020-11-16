@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Books</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/main.css}" xmlns:th="http://www.thymeleaf.org"/>
+</head>
+<body>
+<div class="row">
+
+    <form name="edit_book" th:action="@{/editbooks/{id}(id= ${books.bookId})}"
+          th:object="${books}"
+          method="post">
+        <div class="container">
+            <div class="row">
+                <h5>Edit books</h5>
+            </div>
+            <br>
+            <div class="row">
+                <div>
+                    <label class="active" for="bookName"><p><b>Book name</b></p></label>
+                    <input th:field="*{bookName}" id="bookName" type="text" class="validate"
+                           maxlength="20" placeholder="Book name..." required/>
+                    <div id="editFormBookNameRemainingCharacters">20 characters remaining</div>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <label class="active" for="bookGenre"><p><b>Book genre</b></p></label>
+                    <input th:field="*{bookGenre}" id="bookGenre" type="text" class="validate"
+                           maxlength="20" placeholder="Book genre..." required/>
+                    <div id="editFormBookGenreRemainingCharacters">20 remaining characters</div>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <label class="active" for="bookYearRelease"><p><b>Release</b></p></label>
+                    <input th:object="*{bookYearRelease}" id="bookYearRelease" type="date" pattern="yyyy-MM-dd"
+                           class="validate"
+                           placeholder="Release..." required/>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <label class="active" for="bookLanguage"><p><b>Language</b></p></label>
+                    <input th:object="*{bookLanguage}" id="bookLanguage" type="text" class="validate"
+                           maxlength="20" placeholder="Language..." required/>
+                    <div id="editFormBookLanguageTextRemainingCharacters">20 characters remaining</div>
+                </div>
+            </div>
+            <tr>
+                <td>
+                    <button th:class="button" type="submit"><span>Save</span></button>
+                </td>
+            </tr>
+        </div>
+    </form>
+</div>
+<script>
+    const bookName = document.getElementById("bookName");
+    const editFormBookNameRemainingCharacters = document.getElementById('editFormBookNameRemainingCharacters');
+    const bookNameMaxCharacters = 20;
+    bookName.addEventListener('input', () => {
+        const bookNameRemainingCharacters = bookNameMaxCharacters - bookName.value.length;
+        const colorBookName = bookNameRemainingCharacters < bookNameMaxCharacters * 0.1 ? 'red' : null;
+        editFormBookNameRemainingCharacters.textContent = `${bookNameRemainingCharacters} characters remaining`;
+        editFormBookNameRemainingCharacters.style.color = colorBookName;
+    })
+</script>
+<script>
+    const bookGenre = document.getElementById('bookGenre');
+    const editFormBookGenreRemainingCharacters = document.getElementById('editFormBookGenreRemainingCharacters');
+    const bookGenreMaxCharacters = 20;
+    bookGenre.addEventListener('input', () => {
+        const bookGenreRemainingCharacters = bookGenreMaxCharacters - bookGenre.value.length;
+        const colorBookGenre = bookGenreRemainingCharacters < bookGenreMaxCharacters * 0.1 ? 'red' : null;
+        editFormBookGenreRemainingCharacters.textContent = `${bookGenreRemainingCharacters} characters remaining`;
+        editFormBookGenreRemainingCharacters.style.color = colorBookGenre;
+    })
+</script>
+<script>
+    const bookLanguage = document.getElementById('bookLanguage');
+    const editFormBookLanguageTextRemainingCharacters = document.getElementById('editFormBookLanguageTextRemainingCharacters');
+    const bookLanguageMaxCharacters = 20;
+    bookLanguage.addEventListener('input', () => {
+        const bookLanguageRemainingCharacters = bookLanguageMaxCharacters - bookLanguage.value.length;
+        const colorBookLanguage = bookLanguageRemainingCharacters < bookLanguageMaxCharacters * 0.1 ? 'red' : null;
+        editFormBookLanguageTextRemainingCharacters.textContent = `${bookLanguageRemainingCharacters} characters remaining`;
+        editFormBookLanguageTextRemainingCharacters.style.color = colorBookLanguage;
+    })
+</script>
+</body>
+</html>

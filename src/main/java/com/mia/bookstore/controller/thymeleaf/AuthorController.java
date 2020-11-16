@@ -9,21 +9,23 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
 @Controller
 public class AuthorController {
 
     private final AuthorService authorService;
 
-
     public AuthorController(AuthorService authorService) {
         this.authorService = authorService;
+
     }
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/authors")
     public String showAllAuthors(Model model) {
-
-        model.addAttribute("author", authorService.findAllAuthors());
+        List<Author> authorList = authorService.findAllAuthors();
+        model.addAttribute("author", authorList);
 
         return "author/authors";
 
@@ -31,6 +33,7 @@ public class AuthorController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/createauthor")
     public String createAuthor(Model model) {
+//        model.addAttribute("books", booksService.findAllBooks());
         model.addAttribute("author", new Author());
         return "author/createauthor";
     }
@@ -60,6 +63,12 @@ public class AuthorController {
         authorService.deleteById(id);
         return "redirect:/authors";
 
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = ("/author/{id}/books"))
+    public String viewAuthorsBooks(Model model, @PathVariable Integer id) {
+        model.addAttribute("books", authorService.findBooksByAuthors(id));
+        return "author/viewbooks";
     }
 }
 

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -27,5 +28,8 @@ public class Author {
     @Column(name = "author_last_name", nullable = false, length = 20)
     @Size(min = 3, max = 20)
     private String authorLastName;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "author")
+    private List<Books> books;
 
 }
