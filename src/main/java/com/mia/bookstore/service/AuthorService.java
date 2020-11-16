@@ -6,6 +6,7 @@ import com.mia.bookstore.repository.AuthorRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service("AuthorService")
@@ -53,6 +54,6 @@ public class AuthorService {
     }
 
     public Optional<List<Books>> findBooksByAuthors(Integer id) {
-        return Optional.ofNullable(authorRepository.findById(id).get().getBooks());
+        return Optional.ofNullable(Objects.requireNonNull(authorRepository.findById(id).orElse(null)).getBooks());
     }
 }
