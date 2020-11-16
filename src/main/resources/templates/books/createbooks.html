@@ -30,7 +30,7 @@
             </div>
             <div class="row">
                 <label for="bookYearRelease"><p><b>Release</b></p></label>
-                <input th:field="*{bookYearRelease}" id="bookYearRelease" type="date" class="validate"
+                <input th:field="*{bookYearRelease}" id="bookYearRelease" type="date" pattern="dd-MM-yyyy"  class="validate"
                        placeholder="Book release..."/>
             </div>
             <div class="row">

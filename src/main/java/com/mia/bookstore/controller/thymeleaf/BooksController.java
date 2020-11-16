@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
 @Controller
 public class BooksController {
     private final BooksService booksService;
@@ -23,8 +25,8 @@ public class BooksController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/books")
     public String showAllBooks(Model model) {
-
-        model.addAttribute("books", booksService.findAllBooks());
+        List<Books> booksList = booksService.findAllBooks();
+        model.addAttribute("books", booksList);
 
         return "books/books";
     }
