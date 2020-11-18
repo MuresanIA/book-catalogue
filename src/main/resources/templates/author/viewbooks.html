@@ -47,19 +47,19 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="b : ${books}">
-            <td th:text="${b.}"></td>
+        <tr th:each="book : ${books}">
+            <td th:text="${book.bookName}"></td>
             <br>
-            <td th:text="${b.bookGenre}"></td>
+            <td th:text="${book.bookGenre}"></td>
             <br>
-            <td th:text="${b.bookYearRelease}"></td>
+            <td th:text="${book.bookYearRelease}"></td>
             <br>
-            <td th:text="${b.bookLanguage}"></td>
+            <td th:text="${book.bookLanguage}"></td>
             <td>
-            <a th:href="@{/editbooks/{id} (id = ${b.bookId})}">
+            <a th:href="@{/editbooks/{id} (id = ${book.bookId})}">
                 <i class="material-icons">edit</i>
             </a>
-            <a th:href="@{/deletebooks/{id}(id = ${b.bookId})}"
+            <a th:href="@{/deletebooks/{id}(id = ${book.bookId})}"
                onclick="return confirm('Are you sure you want to delete this item?');">
                 <i class="material-icons">delete</i>
             </a>
