@@ -39,13 +39,15 @@
                        maxlength="20" placeholder="Book language..."/>
                 <div id="bookLanguageTextRemainingCharacters">20 characters remaining</div>
             </div>
-<!--            <div class="row">-->
-<!--                <div>-->
-<!--                    <select id="author" th:field="author.id">-->
-<!--                        <option th:each="author" />-->
-<!--                    </select>-->
-<!--                </div>-->
-<!--            </div>-->
+            <div class="row">
+                <div>
+                    <select id="author" th:field="author.authorId">
+                        <option th:each="at : ${authors}" th:value="${at.authorId}"
+                        th:text="${at.authorFirstName + ' ' + at.authorMiddleName + ' ' + at.authorLastName}"></option>
+                    </select>
+                    <label for="author"><b></b></label>
+                </div>
+            </div>
             <tr>
                 <td>
                     <button th:class="button" type="submit"><span>Save</span></button>
