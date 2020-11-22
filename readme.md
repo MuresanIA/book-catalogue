@@ -17,7 +17,7 @@
 - Hibernate 
 
 
-### Project status in progress.
+### Project status in progress...
 
 ### Features to implement:
 
