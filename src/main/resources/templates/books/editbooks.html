@@ -40,7 +40,7 @@
             <div class="row">
                 <div>
                     <label class="active" for="bookYearRelease"><p><b>Release</b></p></label>
-                    <input th:object="*{bookYearRelease}" id="bookYearRelease" type="date" pattern="yyyy-MM-dd"
+                    <input th:field="*{bookYearRelease}" id="bookYearRelease" type="date" pattern="yyyy-MM-dd"
                            class="validate"
                            placeholder="Release..." required/>
                 </div>
@@ -48,7 +48,7 @@
             <div class="row">
                 <div>
                     <label class="active" for="bookLanguage"><p><b>Language</b></p></label>
-                    <input th:object="*{bookLanguage}" id="bookLanguage" type="text" class="validate"
+                    <input th:field="*{bookLanguage}" id="bookLanguage" type="text" class="validate"
                            maxlength="20" placeholder="Language..." required/>
                     <div id="editFormBookLanguageTextRemainingCharacters">20 characters remaining</div>
                 </div>
