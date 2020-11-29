@@ -27,6 +27,7 @@ public class Books {
     private Date bookYearRelease;
     @Column(name = "book_language", nullable = false, length = 20)
     private String bookLanguage;
+
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     private Author author;
