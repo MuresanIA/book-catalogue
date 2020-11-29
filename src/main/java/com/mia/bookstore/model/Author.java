@@ -32,4 +32,6 @@ public class Author {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "author")
     private List<Books> books;
 
+    public Author() {
+    }
 }
