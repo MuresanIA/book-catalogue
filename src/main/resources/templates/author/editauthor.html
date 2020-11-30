@@ -17,6 +17,8 @@
     <form class="col s12" name="edit_author" th:action="@{/editauthor/{id}(id = ${author.authorId})}"
           th:object="${author}"
           method="post">
+        <input type="hidden" th:field="*{authorId}" />
+
         <div class="container">
             <div class="row">
                 <h5>Edit author</h5>
