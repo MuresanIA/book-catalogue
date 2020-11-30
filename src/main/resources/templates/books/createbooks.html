@@ -42,7 +42,7 @@
             </div>
             <div class="row">
                 <div>
-                    <select id="author" th:field="*{authorId}">
+                    <select id="author" th:field="*{author.authorId}">
                         <option th:each="at : ${authors}" th:value="${at.authorId}"
                         th:text="${at.authorFirstName + ' ' + at.authorMiddleName + ' ' + at.authorLastName}"></option>
                     </select>
