@@ -16,7 +16,7 @@
     <form name="edit_book" th:action="@{/editbooks/{id}(id= ${books.bookId})}"
           th:object="${books}"
           method="post">
-        <input type="hidden" th:field="*{bookId}" />
+        <input type="hidden" th:field="*{bookId}"/>
         <div class="container">
             <div class="row">
                 <h5>Edit books</h5>

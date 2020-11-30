@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" th:href="@{/css/main.css}" xmlns:th="http://www.thymeleaf.org"/>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('select').formSelect();
         });
     </script>
@@ -20,7 +20,7 @@
 <div class="row">
     <form name="createbooks" th:action="@{/createbooks}"
           th:object="${books}" method="post">
-        <input type="hidden" th:field="*{bookId}" />
+        <input type="hidden" th:field="*{bookId}"/>
         <div class="container">
             <div class="row"><h5>Create books</h5></div>
             <br>
@@ -38,7 +38,8 @@
             </div>
             <div class="row">
                 <label for="bookYearRelease"><p><b>Release</b></p></label>
-                <input th:field="*{bookYearRelease}" id="bookYearRelease" type="date" pattern="dd-MM-yyyy"  class="validate"
+                <input th:field="*{bookYearRelease}" id="bookYearRelease" type="date" pattern="dd-MM-yyyy"
+                       class="validate"
                        placeholder="Book release..." required/>
             </div>
             <div class="row">
@@ -52,12 +53,12 @@
                     <label for="author"><p><b>Select author</b></p></label>
                     <select id="author" th:field="*{author.authorId}">
                         <option th:each="at : ${authors}" th:value="${at.authorId}"
-                        th:text="${at.authorFirstName + ' ' + at.authorMiddleName + ' ' + at.authorLastName}"></option>
+                                th:text="${at.authorFirstName + ' ' + at.authorMiddleName + ' ' + at.authorLastName}"></option>
                     </select>
                     <label for="author"><b></b></label>
                 </div>
             </div>
-                    <button th:class="button" type="submit"><span>Save</span></button>
+            <button th:class="button" type="submit"><span>Save</span></button>
         </div>
     </form>
 </div>
