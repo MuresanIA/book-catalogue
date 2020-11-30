@@ -42,18 +42,14 @@
             </div>
             <div class="row">
                 <div>
-                    <select id="author" th:field="*{author.authorId}">
+                    <select id="author" th:field="*{authorId}">
                         <option th:each="at : ${authors}" th:value="${at.authorId}"
                         th:text="${at.authorFirstName + ' ' + at.authorMiddleName + ' ' + at.authorLastName}"></option>
                     </select>
                     <label for="author"><b></b></label>
                 </div>
             </div>
-            <tr>
-                <td>
                     <button th:class="button" type="submit"><span>Save</span></button>
-                </td>
-            </tr>
         </div>
     </form>
 </div>
