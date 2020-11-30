@@ -13,6 +13,7 @@
 </head>
 <body>
 <div class="row">
+<!--    it creates new data instead of updating it-->
     <form class="col s12" name="edit_author" th:action="@{/editauthor/{id}(id = ${author.authorId})}"
           th:object="${author}"
           method="post">

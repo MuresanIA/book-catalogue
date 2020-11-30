@@ -23,9 +23,9 @@ public class AuthorService {
         return author.orElse(null);
     }
 
-    public Author findById(Integer id) {
+    public Author findByAuthorId(Integer id) {
 
-        Optional<Author> author = authorRepository.findById(id);
+        Optional<Author> author = Optional.ofNullable(authorRepository.findByAuthorId(id));
         return author.orElse(null);
     }
 
