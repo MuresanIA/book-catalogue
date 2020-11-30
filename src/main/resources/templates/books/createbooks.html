@@ -4,20 +4,28 @@
     <meta charset="UTF-8">
     <title>Create Books</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script type="text/javascript"
+            src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" th:href="@{/css/main.css}" xmlns:th="http://www.thymeleaf.org"/>
+    <script>
+        $(document).ready(function() {
+            $('select').formSelect();
+        });
+    </script>
 </head>
 <body>
 <div class="row">
     <form name="createbooks" th:action="@{/createbooks}"
           th:object="${books}" method="post">
+        <input type="hidden" th:field="*{bookId}" />
         <div class="container">
             <div class="row"><h5>Create books</h5></div>
             <br>
             <div class="row">
-                <label for="bookName"><p><b>Name</b></p></label>
+                <label for="bookName"><b>Name</b></label>
                 <input th:field="*{bookName}" id="bookName" type="text" class="validate"
                        maxlength="20" placeholder="Book name..." required/>
                 <div id="bookNameTextRemainingCharacters">20 characters remaining</div>
@@ -25,34 +33,31 @@
             <div class="row">
                 <label for="bookGenre"><p><b>Genre</b></p></label>
                 <input th:field="*{bookGenre}" id="bookGenre" type="text" class="validate"
-                       maxlength="20" placeholder="Book genre..."/>
+                       maxlength="20" placeholder="Book genre..." required/>
                 <div id="bookGenreTextRemainingCharacters">20 characters remaining</div>
             </div>
             <div class="row">
                 <label for="bookYearRelease"><p><b>Release</b></p></label>
                 <input th:field="*{bookYearRelease}" id="bookYearRelease" type="date" pattern="dd-MM-yyyy"  class="validate"
-                       placeholder="Book release..."/>
+                       placeholder="Book release..." required/>
             </div>
             <div class="row">
                 <label for="bookLanguage"><p><b>Language</b></p></label>
                 <input th:field="*{bookLanguage}" id="bookLanguage" type="text" class="validate"
-                       maxlength="20" placeholder="Book language..."/>
+                       maxlength="20" placeholder="Book language..." required/>
                 <div id="bookLanguageTextRemainingCharacters">20 characters remaining</div>
             </div>
             <div class="row">
                 <div>
-                    <select id="author" th:field="author.authorId">
+                    <label for="author"><p><b>Select author</b></p></label>
+                    <select id="author" th:field="*{author.authorId}">
                         <option th:each="at : ${authors}" th:value="${at.authorId}"
                         th:text="${at.authorFirstName + ' ' + at.authorMiddleName + ' ' + at.authorLastName}"></option>
                     </select>
                     <label for="author"><b></b></label>
                 </div>
             </div>
-            <tr>
-                <td>
                     <button th:class="button" type="submit"><span>Save</span></button>
-                </td>
-            </tr>
         </div>
     </form>
 </div>

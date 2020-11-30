@@ -46,7 +46,7 @@ public class AuthorController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/editauthor/{id}")
     public String editAuthor(Model model, @PathVariable Integer id) {
-        Author author = authorService.findById(id);
+        Author author = authorService.findByAuthorId(id);
         model.addAttribute("author", author);
         return "author/editauthor";
     }
