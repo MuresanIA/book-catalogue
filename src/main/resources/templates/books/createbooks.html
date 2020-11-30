@@ -26,18 +26,18 @@
             <div class="row">
                 <label for="bookGenre"><p><b>Genre</b></p></label>
                 <input th:field="*{bookGenre}" id="bookGenre" type="text" class="validate"
-                       maxlength="20" placeholder="Book genre..."/>
+                       maxlength="20" placeholder="Book genre..." required/>
                 <div id="bookGenreTextRemainingCharacters">20 characters remaining</div>
             </div>
             <div class="row">
                 <label for="bookYearRelease"><p><b>Release</b></p></label>
                 <input th:field="*{bookYearRelease}" id="bookYearRelease" type="date" pattern="dd-MM-yyyy"  class="validate"
-                       placeholder="Book release..."/>
+                       placeholder="Book release..." required/>
             </div>
             <div class="row">
                 <label for="bookLanguage"><p><b>Language</b></p></label>
                 <input th:field="*{bookLanguage}" id="bookLanguage" type="text" class="validate"
-                       maxlength="20" placeholder="Book language..."/>
+                       maxlength="20" placeholder="Book language..." required/>
                 <div id="bookLanguageTextRemainingCharacters">20 characters remaining</div>
             </div>
             <div class="row">
