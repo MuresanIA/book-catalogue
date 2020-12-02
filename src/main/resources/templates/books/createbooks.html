@@ -31,31 +31,31 @@
                 <div id="bookNameTextRemainingCharacters">20 characters remaining</div>
             </div>
             <div class="row">
-                <label for="bookGenre"><p><b>Genre</b></p></label>
+                <label for="bookGenre"><b>Genre</b></label>
                 <input th:field="*{bookGenre}" id="bookGenre" type="text" class="validate"
                        maxlength="20" placeholder="Book genre..." required/>
                 <div id="bookGenreTextRemainingCharacters">20 characters remaining</div>
             </div>
             <div class="row">
-                <label for="bookYearRelease"><p><b>Release</b></p></label>
+                <label for="bookYearRelease"><b>Release</b></label>
                 <input th:field="*{bookYearRelease}" id="bookYearRelease" type="date" pattern="dd-MM-yyyy"
                        class="validate"
                        placeholder="Book release..." required/>
             </div>
             <div class="row">
-                <label for="bookLanguage"><p><b>Language</b></p></label>
+                <label for="bookLanguage"><b>Language</b></label>
                 <input th:field="*{bookLanguage}" id="bookLanguage" type="text" class="validate"
                        maxlength="20" placeholder="Book language..." required/>
                 <div id="bookLanguageTextRemainingCharacters">20 characters remaining</div>
             </div>
             <div class="row">
                 <div>
-                    <label for="author"><p><b>Select author</b></p></label>
+                    <label for="author"><b>Select author</b></label>
                     <select id="author" th:field="*{author.authorId}">
                         <option th:each="at : ${authors}" th:value="${at.authorId}"
                                 th:text="${at.authorFirstName + ' ' + at.authorMiddleName + ' ' + at.authorLastName}"></option>
                     </select>
-                    <label for="author"><b></b></label>
+                    <label for="author"><b>Author</b></label>
                 </div>
             </div>
             <button th:class="button" type="submit"><span>Save</span></button>
