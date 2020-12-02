@@ -18,7 +18,7 @@
 
 
 ### Project status in progress.
-a
+
 ### Features to implement:
 
 - Create, update and delete authors or books.
