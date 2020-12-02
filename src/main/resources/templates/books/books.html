@@ -15,9 +15,7 @@
 <div class="container">
     <table th:class="highlight">
         <thead>
-        <div class="row">
             <h5>Books</h5>
-        </div>
         <tr>
             <th class="thead-text">
                 <p>
@@ -49,11 +47,8 @@
         <tbody>
         <tr th:each="b : ${books}">
             <td th:text="${b.bookName}"></td>
-            <br>
             <td th:text="${b.bookGenre}"></td>
-            <br>
             <td th:text="${b.bookYearRelease}"></td>
-            <br>
             <td th:text="${b.bookLanguage}"></td>
             <td>
                 <a th:href="@{/editbooks/{id} (id = ${b.bookId})}">
