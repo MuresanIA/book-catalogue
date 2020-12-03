@@ -8,6 +8,11 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--    CSS-->
     <link rel="stylesheet" th:href="@{/css/main.css}" xmlns:th="http://www.thymeleaf.org"/>
 </head>
 <!--to be done-->
@@ -36,7 +41,7 @@
                        maxlength="20" placeholder="Author Last Name..." required/>
                 <div id="lastNameTextRemainingCharacters">20 characters remaining</div>
             </div>
-                    <button th:class="button" type="submit"><span>Save</span></button>
+            <button th:class="button" type="submit"><span>Save</span></button>
         </div>
     </form>
 </div>
@@ -50,6 +55,7 @@
         firstNameTextRemainingChars.textContent = `${remaining} characters remaining`;
         firstNameTextRemainingChars.style.color = color;
     })
+
 </script>
 <script>
     const middleName = document.getElementById('middleName');
@@ -61,6 +67,7 @@
         middleNameTextRemainingCharacters.textContent = `${REMAINING_MIDDLE_NAME} characters remaining`;
         middleNameTextRemainingCharacters.style.color = COLOR_MIDDLE_NAME;
     })
+
 </script>
 <script>
     const lastName = document.getElementById('lastName');
@@ -72,6 +79,7 @@
         lastNameTextRemainingCharacters.textContent = `${REMAINING_LAST_NAME} characters remaining`;
         lastNameTextRemainingCharacters.style.color = COLOR_LAST_NAME;
     })
+
 </script>
 </body>
 </html>
