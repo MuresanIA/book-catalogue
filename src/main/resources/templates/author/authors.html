@@ -35,9 +35,7 @@
 <div class="container">
     <table th:class="highlight">
         <thead>
-        <div class="row">
             <h5>Authors</h5>
-        </div>
         <tr>
             <th class="thead-text">
                 <p>
@@ -64,9 +62,7 @@
         <tbody>
         <tr th:each="a : ${author}">
             <td th:text="${a.authorFirstName}"></td>
-            <br>
             <td th:text="${a.authorMiddleName}"></td>
-            <br>
             <td th:text="${a.authorLastName}"></td>
             <td>
                 <a th:href="@{/editauthor/{id} (id = ${a.authorId})}">
