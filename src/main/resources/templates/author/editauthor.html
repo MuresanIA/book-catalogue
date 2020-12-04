@@ -20,11 +20,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <link rel="stylesheet" th:href="@{/css/main.css}" xmlns:th="http://www.thymeleaf.org"/>
-
 </head>
 <body>
 <div class="row">
-    <!--    it creates new data instead of updating it-->
     <form class="col s12" name="edit_author" th:action="@{/editauthor/{id}(id = ${author.authorId})}"
           th:object="${author}"
           method="post">
@@ -74,7 +72,6 @@
         editFormFirstNameRemainingCharacters.textContent = `${remaining} characters remaining`;
         editFormFirstNameRemainingCharacters.style.color = color;
     })
-
 </script>
 <script>
     const middleName = document.getElementById('middleName');
@@ -86,7 +83,6 @@
         editFormMiddleNameRemainingCharacters.textContent = `${REMAINING_MIDDLE_NAME_CHARACTERS} characters remaining`;
         editFormMiddleNameRemainingCharacters.style.color = COLOR_MIDDLE_NAME;
     })
-
 </script>
 <script>
     const lastName = document.getElementById('lastName');
@@ -98,7 +94,6 @@
         editFormLastNameRemainingCharacters.textContent = `${REMAINING_LAST_NAME_CHARACTERS} characters remaining`;
         editFormLastNameRemainingCharacters.style.color = COLOR_LAST_NAME;
     })
-
 </script>
 </body>
 </html>

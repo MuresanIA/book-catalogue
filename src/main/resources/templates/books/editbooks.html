@@ -23,7 +23,6 @@
 </head>
 <body>
 <div class="row">
-
     <form name="edit_book" th:action="@{/editbooks/{id}(id= ${books.bookId})}"
           th:object="${books}"
           method="post">
