@@ -20,6 +20,15 @@
 
     <link rel="stylesheet" th:href="@{/css/main.css}" xmlns:th="http://www.thymeleaf.org"/>
 
+    <th:block th:insert="navbar.html::nav_script">
+    </th:block>
+
+    <th:block th:insert="navbar.html::menu_nav">
+    </th:block>
+
+    <th:block th:insert="navbar.html::mobile_nav">
+    </th:block>
+
     <script>
         $(document).ready(function(){
             $('.slider').slider();
@@ -27,18 +36,6 @@
     </script>
 </head>
 <body>
-<div class="navbar-fixed">
-    <nav>
-        <div class="nav-wrapper">
-            <a href="#!" class="brand-logo">Logo</a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="sass.html">Authors</a></li>
-                <li><a href="badges.html">Books</a></li>
-                <li><a href="badges.html">Logout</a></li>
-            </ul>
-        </div>
-    </nav>
-</div>
 <div class="slider fullscreen">
     <ul class="slides">
         <li>
