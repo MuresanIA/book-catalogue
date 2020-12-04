@@ -19,6 +19,15 @@
     <link rel="stylesheet" th:href="@{/css/main.css}" xmlns:th="http://www.thymeleaf.org"/>
     <meta charset="UTF-8">
     <title>Create Author</title>
+
+    <th:block th:insert="navbar.html::nav_script">
+    </th:block>
+
+    <th:block th:insert="navbar.html::menu_nav">
+    </th:block>
+
+    <th:block th:insert="navbar.html::mobile_nav">
+    </th:block>
 </head>
 <body>
 <div class="row">
@@ -59,6 +68,7 @@
         firstNameTextRemainingChars.textContent = `${remaining} characters remaining`;
         firstNameTextRemainingChars.style.color = color;
     })
+
 </script>
 <script>
     const middleName = document.getElementById('middleName');
@@ -70,6 +80,7 @@
         middleNameTextRemainingCharacters.textContent = `${REMAINING_MIDDLE_NAME} characters remaining`;
         middleNameTextRemainingCharacters.style.color = COLOR_MIDDLE_NAME;
     })
+
 </script>
 <script>
     const lastName = document.getElementById('lastName');
@@ -81,6 +92,7 @@
         lastNameTextRemainingCharacters.textContent = `${REMAINING_LAST_NAME} characters remaining`;
         lastNameTextRemainingCharacters.style.color = COLOR_LAST_NAME;
     })
+
 </script>
 </body>
 </html>
