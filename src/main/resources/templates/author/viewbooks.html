@@ -19,6 +19,16 @@
     <link rel="stylesheet" th:href="@{/css/main.css}" xmlns:th="http://www.thymeleaf.org"/>
     <meta charset="UTF-8">
     <title>View Books</title>
+
+    <th:block th:insert="navbar.html::nav_script">
+    </th:block>
+
+    <th:block th:insert="navbar.html::menu_nav">
+    </th:block>
+
+    <th:block th:insert="navbar.html::mobile_nav">
+    </th:block>
+
 </head>
 <body>
 <div class="container">
