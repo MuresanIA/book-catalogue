@@ -19,18 +19,34 @@
     <link rel="stylesheet" th:href="@{/css/main.css}" xmlns:th="http://www.thymeleaf.org"/>
     <meta charset="UTF-8">
     <title>View Books</title>
-
-    <th:block th:insert="navbar.html::nav_script">
-    </th:block>
-
-    <th:block th:insert="navbar.html::menu_nav">
-    </th:block>
-
-    <th:block th:insert="navbar.html::mobile_nav">
-    </th:block>
-
+    <script th:fragment="nav_script" xmlns:th="http://www.thymeleaf.org">
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+        });
+    </script>
 </head>
 <body th:style="'background-image:url(' + @{/img/viewbooks.jpg} + '); background-repeat: no-repeat, repeat; background-size: cover;'">
+<nav th:fragment="menu_nav" xmlns:th="http://www.thymeleaf.org">
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <ul class="right hide-on-med-and-down">
+                    <li><a style="font-weight:bold; color: black" th:href="@{/}">Home</a></li>
+                    <li><a style="font-weight:bold; color: black" th:href="@{/authors}">Authors</a></li>
+                    <li><a style="font-weight:bold; color: black" th:href="@{/books}">Books</a></li>
+                    <li><a style="font-weight:bold; color: black" th:href="badges.html">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</nav>
+
+<ul th:fragment="mobile_nav" xmlns:th="http://www.thymeleaf.org" class="sidenav" id="mobile-demo">
+    <li><a style="font-weight:bold; color: black" th:href="@{/}">Home</a></li>
+    <li><a style="font-weight:bold; color: black" th:href="@{/authors}">Authors</a></li>
+    <li><a style="font-weight:bold; color: black" th:href="@{/books}">Books</a></li>
+    <li><a style="font-weight:bold; color: black" th:href="badges.html">Logout</a></li>
+</ul>
 <div class="container">
     <table th:class="highlight">
         <thead>
