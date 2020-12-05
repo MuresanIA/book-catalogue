@@ -44,37 +44,37 @@
         <div class="container">
             <h5 align="center">Create books</h5>
             <div class="row">
-                <label for="bookName"><b>Name</b></label>
+                <label style="color:black" for="bookName"><b>Name</b></label>
                 <input th:field="*{bookName}" id="bookName" type="text" class="validate"
                        maxlength="20" placeholder="Book name..." required/>
                 <div id="bookNameTextRemainingCharacters">20 characters remaining</div>
             </div>
             <div class="row">
-                <label for="bookGenre"><b>Genre</b></label>
+                <label style="color:black" for="bookGenre"><b>Genre</b></label>
                 <input th:field="*{bookGenre}" id="bookGenre" type="text" class="validate"
                        maxlength="20" placeholder="Book genre..." required/>
                 <div id="bookGenreTextRemainingCharacters">20 characters remaining</div>
             </div>
             <div class="row">
-                <label for="bookYearRelease"><b>Release</b></label>
+                <label style="color:black" for="bookYearRelease"><b>Release</b></label>
                 <input th:field="*{bookYearRelease}" id="bookYearRelease" type="date" pattern="dd-MM-yyyy"
                        class="validate"
                        placeholder="Book release..." required/>
             </div>
             <div class="row">
-                <label for="bookLanguage"><b>Language</b></label>
+                <label style="color:black" for="bookLanguage"><b>Language</b></label>
                 <input th:field="*{bookLanguage}" id="bookLanguage" type="text" class="validate"
                        maxlength="20" placeholder="Book language..." required/>
                 <div id="bookLanguageTextRemainingCharacters">20 characters remaining</div>
             </div>
             <div class="row">
                 <div>
-                    <label for="author"><b>Select author</b></label>
+                    <label style="color:black" for="author"><b>Select author</b></label>
                     <select id="author" th:field="*{author.authorId}">
                         <option th:each="at : ${authors}" th:value="${at.authorId}"
                                 th:text="${at.authorFirstName + ' ' + at.authorMiddleName + ' ' + at.authorLastName}"></option>
                     </select>
-                    <label for="author"><b>Author</b></label>
+                    <label style="color:black" for="author"><b>Author</b></label>
                 </div>
             </div>
             <button th:class="button" type="submit"><span>Save</span></button>
