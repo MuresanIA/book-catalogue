@@ -30,7 +30,7 @@
     </th:block>
 
 </head>
-<body>
+<body th:style="'background-image:url(' + @{/img/oldpaperwallpaperhd.jpg} + '); background-repeat: no-repeat, repeat; background-size: cover;'">
 <div class="row">
     <form class="col s12" name="edit_author" th:action="@{/editauthor/{id}(id = ${author.authorId})}"
           th:object="${author}"

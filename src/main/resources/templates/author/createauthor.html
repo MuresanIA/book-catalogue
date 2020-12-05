@@ -29,7 +29,7 @@
     <th:block th:insert="navbar.html::mobile_nav">
     </th:block>
 </head>
-<body>
+<body th:style="'background-image:url(' + @{/img/crumpledpaperwallpaperhd.jpg} + '); background-repeat: no-repeat, repeat; background-size: cover;'">
 <div class="row">
     <form name="createAuthor"  th:action="@{/createauthor}"
           th:object="${author}" method="post">
