@@ -58,7 +58,7 @@
                 <div id="bookGenreTextRemainingCharacters">20 characters remaining</div>
             </div>
             <div class="row">
-                <label  style="color:black" for="bookYearRelease"><b>Release</b></label>
+                <label  style="color:black" for="bookYearRelease"><b>Release date</b></label>
                 <input th:field="*{bookYearRelease}" id="bookYearRelease" type="date" pattern="dd-MM-yyyy"
                        class="validate"
                        placeholder="Please fill in..." required/>
@@ -71,7 +71,7 @@
             </div>
             <div class="row">
                 <div>
-                    <label style="color:black" for="author"><b>Select author</b></label>
+                    <label style="color:black" for="author"><b>Select an author from the dropdown list</b></label>
                     <select id="author" th:field="*{author.authorId}">
                         <option th:each="at : ${authors}" th:value="${at.authorId}"
                                 th:text="${at.authorFirstName + ' ' + at.authorMiddleName + ' ' + at.authorLastName}"></option>
