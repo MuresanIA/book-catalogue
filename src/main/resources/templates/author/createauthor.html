@@ -31,10 +31,12 @@
 </head>
 <body th:style="'background-image:url(' + @{/img/428760-Kycb_3840x2400.jpg} + '); background-repeat: no-repeat, repeat; background-size: cover;'">
 <div class="row">
-    <form name="createAuthor"  th:action="@{/createauthor}"
+    <form name="createAuthor" th:action="@{/createauthor}"
           th:object="${author}" method="post">
         <div class="container">
-            <h5 align="center">Create author</h5>
+            <h5 align="left">
+                <strong>Create author</strong>
+            </h5>
             <div class="row">
                 <label style="color:black" for="firstName"><b>Author's first name</b></label>
                 <input th:field="*{authorFirstName}" id="firstName" type="text" class="validate"

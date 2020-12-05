@@ -42,7 +42,9 @@
           th:object="${books}" method="post">
         <input type="hidden" th:field="*{bookId}"/>
         <div class="container">
-            <h5 align="center">Create books</h5>
+            <h5 align="center">
+                <strong>Create books</strong>
+            </h5>
             <div class="row">
                 <label style="color:black" for="bookName"><b>Name</b></label>
                 <input th:field="*{bookName}" id="bookName" type="text" class="validate"
