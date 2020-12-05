@@ -31,7 +31,7 @@
     </th:block>
 
 </head>
-<body>
+<body th:style="'background-image:url(' + @{/img/editbookswallpaper.jpg} + '); background-repeat: no-repeat, repeat; background-size: cover;'">
 <div class="row">
     <form name="edit_book" th:action="@{/editbooks/{id}(id= ${books.bookId})}"
           th:object="${books}"
