@@ -40,19 +40,19 @@
             <div class="row">
                 <label style="color:black" for="firstName"><b>Author's first name</b></label>
                 <input th:field="*{authorFirstName}" id="firstName" type="text" class="validate"
-                       maxlength="20" placeholder="Author First Name..." required/>
+                       maxlength="20" placeholder="Please fill in..." required/>
                 <div id="firstNameTextRemainingChars">20 characters remaining</div>
             </div>
             <div class="row">
                 <label style="color:black" for="middleName"><b>Author's middle name</b></label>
                 <input th:field="*{authorMiddleName}" id="middleName" type="text" class="validate"
-                       maxlength="20" placeholder="Author Middle Name..." required/>
+                       maxlength="20" placeholder="Please fill in..." required/>
                 <div id="middleNameTextRemainingCharacters">20 characters remaining</div>
             </div>
             <div class="row">
                 <label style="color:black" for="lastName"><b>Author's last name</b></label>
                 <input th:field="*{authorLastName}" id="lastName" type="text" class="validate"
-                       maxlength="20" placeholder="Author Last Name..." required/>
+                       maxlength="20" placeholder="Please fill in..." required/>
                 <div id="lastNameTextRemainingCharacters">20 characters remaining</div>
             </div>
             <button th:class="button" type="submit"><span>Save</span></button>

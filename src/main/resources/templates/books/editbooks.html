@@ -46,7 +46,7 @@
                 <div>
                     <label style="color:black" class="active" for="bookName"><b>Book name</b></label>
                     <input th:field="*{bookName}" id="bookName" type="text" class="validate"
-                           maxlength="20" placeholder="Book name..." required/>
+                           maxlength="20" placeholder="Please fill in..." required/>
                     <div id="editFormBookNameRemainingCharacters">20 characters remaining</div>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                 <div>
                     <label style="color:black" class="active" for="bookGenre"><b>Book genre</b></label>
                     <input th:field="*{bookGenre}" id="bookGenre" type="text" class="validate"
-                           maxlength="20" placeholder="Book genre..." required/>
+                           maxlength="20" placeholder="Please fill in..." required/>
                     <div id="editFormBookGenreRemainingCharacters">20 remaining characters</div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                     <label style="color:black" class="active" for="bookYearRelease"><b>Release</b></label>
                     <input th:field="*{bookYearRelease}" id="bookYearRelease" type="date" pattern="yyyy-MM-dd"
                            class="validate"
-                           placeholder="Release..." required/>
+                           placeholder="Please fill in..." required/>
                 </div>
             </div>
             <div class="row">
