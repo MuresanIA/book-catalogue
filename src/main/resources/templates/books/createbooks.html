@@ -36,7 +36,7 @@
         });
     </script>
 </head>
-<body>
+<body th:style="'background-image:url(' + @{/img/wallpapertip.jpg} + '); background-repeat: no-repeat, repeat; background-size: cover;'">
 <div class="row">
     <form name="createbooks" th:action="@{/createbooks}"
           th:object="${books}" method="post">
@@ -52,13 +52,13 @@
                 <div id="bookNameTextRemainingCharacters">20 characters remaining</div>
             </div>
             <div class="row">
-                <label style="color:black" for="bookGenre"><b>Genre</b></label>
+                <label  style="color:black" for="bookGenre"><b>Genre</b></label>
                 <input th:field="*{bookGenre}" id="bookGenre" type="text" class="validate"
                        maxlength="20" placeholder="Book genre..." required/>
                 <div id="bookGenreTextRemainingCharacters">20 characters remaining</div>
             </div>
             <div class="row">
-                <label style="color:black" for="bookYearRelease"><b>Release</b></label>
+                <label  style="color:black" for="bookYearRelease"><b>Release</b></label>
                 <input th:field="*{bookYearRelease}" id="bookYearRelease" type="date" pattern="dd-MM-yyyy"
                        class="validate"
                        placeholder="Book release..." required/>
