@@ -20,17 +20,34 @@
 
     <meta charset="UTF-8">
     <title>View Books</title>
-
-    <th:block th:insert="navbar.html::nav_script">
-    </th:block>
-
-    <th:block th:insert="navbar.html::menu_nav">
-    </th:block>
-
-    <th:block th:insert="navbar.html::mobile_nav">
-    </th:block>
+    <script th:fragment="nav_script" xmlns:th="http://www.thymeleaf.org">
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+        });
+    </script>
 </head>
-<body>
+<body th:style="'background-image:url(' + @{/img/viewbooks.jpg} + '); background-repeat: no-repeat, repeat; background-size: cover;'">
+<nav th:fragment="menu_nav" xmlns:th="http://www.thymeleaf.org">
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <ul class="right hide-on-med-and-down">
+                    <li><a style="font-weight:bold; color: black" th:href="@{/}">Home</a></li>
+                    <li><a style="font-weight:bold; color: black" th:href="@{/authors}">Authors</a></li>
+                    <li><a style="font-weight:bold; color: black" th:href="@{/books}">Books</a></li>
+                    <li><a style="font-weight:bold; color: black" th:href="badges.html">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</nav>
+
+<ul th:fragment="mobile_nav" xmlns:th="http://www.thymeleaf.org" class="sidenav" id="mobile-demo">
+    <li><a style="font-weight:bold; color: black" th:href="@{/}">Home</a></li>
+    <li><a style="font-weight:bold; color: black" th:href="@{/authors}">Authors</a></li>
+    <li><a style="font-weight:bold; color: black" th:href="@{/books}">Books</a></li>
+    <li><a style="font-weight:bold; color: black" th:href="badges.html">Logout</a></li>
+</ul>
 <div class="container">
     <table th:class="highlight">
         <thead>
@@ -67,17 +84,17 @@
         </thead>
         <tbody>
         <tr th:each="b : ${books}">
-            <td th:text="${b.bookName}"></td>
-            <td th:text="${b.bookGenre}"></td>
-            <td th:text="${b.bookYearRelease}"></td>
-            <td th:text="${b.bookLanguage}"></td>
+            <td style="font-weight:bold; color: darkred" th:text="${b.bookName}"></td>
+            <td style="font-weight:bold; color: darkred" th:text="${b.bookGenre}"></td>
+            <td style="font-weight:bold; color: darkred" th:text="${b.bookYearRelease}"></td>
+            <td style="font-weight:bold; color: darkred" th:text="${b.bookLanguage}"></td>
             <td>
                 <a th:href="@{/editbooks/{id} (id = ${b.bookId})}">
-                    <i class="material-icons">edit</i>
+                    <i style="color: black" class="material-icons">edit</i>
                 </a>
                 <a th:href="@{/deletebooks/{id}(id = ${b.bookId})}"
                    onclick="return confirm('Are you sure you want to delete this item?');">
-                    <i class="material-icons">delete</i>
+                    <i style="color: black" class="material-icons">delete</i>
                 </a>
             </td>
         </tr>
@@ -86,7 +103,7 @@
 </div>
 <div class="container">
     <a th:href="@{/createbooks}">
-        <i class="material-icons">library_add</i>
+        <i style="color: black" class="material-icons">library_add</i>
     </a>
 </div>
 </body>
