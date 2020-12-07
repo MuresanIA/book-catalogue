@@ -1,0 +1,27 @@
+<nav th:fragment="menu_nav" xmlns:th="http://www.thymeleaf.org">
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <ul class="right hide-on-med-and-down">
+                    <li><a style="font-weight:bold; color: darkred" th:href="@{/}">Home</a></li>
+                    <li><a style="font-weight:bold; color: darkred" th:href="@{/authors}">Authors</a></li>
+                    <li><a style="font-weight:bold; color: darkred" th:href="@{/books}">Books</a></li>
+                    <li><a style="font-weight:bold; color: darkred" th:href="badges.html">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</nav>
+
+<ul th:fragment="mobile_nav" xmlns:th="http://www.thymeleaf.org" class="sidenav" id="mobile-demo">
+    <li><a style="font-weight:bold; color: darkred" th:href="@{/}">Home</a></li>
+    <li><a style="font-weight:bold; color: darkred" th:href="@{/authors}">Authors</a></li>
+    <li><a style="font-weight:bold; color: darkred" th:href="@{/books}">Books</a></li>
+    <li><a style="font-weight:bold; color: darkred" th:href="badges.html">Logout</a></li>
+</ul>
+
+<script th:fragment="nav_script" xmlns:th="http://www.thymeleaf.org" >
+     $(document).ready(function(){
+        $('.sidenav').sidenav();
+     });
+</script>

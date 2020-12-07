@@ -1,71 +1,82 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta charset="UTF-8">
-    <title>Create Books</title>
-
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
+    <!-- Compiled and minified JavaScript -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!--jQuery-->
-    <script type="text/javascript"
-            src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     <link rel="stylesheet" th:href="@{/css/main.css}" xmlns:th="http://www.thymeleaf.org"/>
+
+    <meta charset="UTF-8">
+    <title>Create Books</title>
+
+    <th:block th:insert="navbar.html::nav_script">
+    </th:block>
+
+    <th:block th:insert="navbar.html::menu_nav">
+    </th:block>
+
+    <th:block th:insert="navbar.html::mobile_nav">
+    </th:block>
+
     <script>
         $(document).ready(function () {
             $('select').formSelect();
         });
-
     </script>
 </head>
-<body>
+<body th:style="'background-image:url(' + @{/img/wallpapertip.jpg} + '); background-repeat: no-repeat, repeat; background-size: cover;'">
 <div class="row">
     <form name="createbooks" th:action="@{/createbooks}"
           th:object="${books}" method="post">
         <input type="hidden" th:field="*{bookId}"/>
         <div class="container">
-            <div class="row"><h5>Create books</h5></div>
-            <br>
+            <h5 align="center">
+                <strong>Create books</strong>
+            </h5>
             <div class="row">
-                <label for="bookName"><b>Name</b></label>
+                <label style="color:black" for="bookName"><b>Name</b></label>
                 <input th:field="*{bookName}" id="bookName" type="text" class="validate"
-                       maxlength="20" placeholder="Book name..." required/>
+                       maxlength="20" placeholder="Please fill in..." required/>
                 <div id="bookNameTextRemainingCharacters">20 characters remaining</div>
             </div>
             <div class="row">
-                <label for="bookGenre"><b>Genre</b></label>
+                <label  style="color:black" for="bookGenre"><b>Genre</b></label>
                 <input th:field="*{bookGenre}" id="bookGenre" type="text" class="validate"
-                       maxlength="20" placeholder="Book genre..." required/>
+                       maxlength="20" placeholder="Please fill in..." required/>
                 <div id="bookGenreTextRemainingCharacters">20 characters remaining</div>
             </div>
             <div class="row">
-                <label for="bookYearRelease"><b>Release</b></label>
+                <label  style="color:black" for="bookYearRelease"><b>Release date</b></label>
                 <input th:field="*{bookYearRelease}" id="bookYearRelease" type="date" pattern="dd-MM-yyyy"
                        class="validate"
-                       placeholder="Book release..." required/>
+                       placeholder="Please fill in..." required/>
             </div>
             <div class="row">
-                <label for="bookLanguage"><b>Language</b></label>
+                <label style="color:black" for="bookLanguage"><b>Language</b></label>
                 <input th:field="*{bookLanguage}" id="bookLanguage" type="text" class="validate"
-                       maxlength="20" placeholder="Book language..." required/>
+                       maxlength="20" placeholder="Please fill in..." required/>
                 <div id="bookLanguageTextRemainingCharacters">20 characters remaining</div>
             </div>
             <div class="row">
                 <div>
-                    <label for="author"><b>Select author</b></label>
+                    <label style="color:black" for="author"><b>Select an author from the dropdown list</b></label>
                     <select id="author" th:field="*{author.authorId}">
                         <option th:each="at : ${authors}" th:value="${at.authorId}"
                                 th:text="${at.authorFirstName + ' ' + at.authorMiddleName + ' ' + at.authorLastName}"></option>
                     </select>
-                    <label for="author"><b>Author</b></label>
+                    <label style="color:black" for="author"><b>Author</b></label>
                 </div>
             </div>
             <button th:class="button" type="submit"><span>Save</span></button>
@@ -82,7 +93,6 @@
         bookNameTextRemainingCharacters.textContent = `${bookNameRemainingCharacters} characters remaining`;
         bookNameTextRemainingCharacters.style.color = bookNameColor;
     })
-
 </script>
 <script>
     const bookGenre = document.getElementById('bookGenre');
@@ -94,7 +104,6 @@
         bookGenreTextRemainingCharacters.textContent = `${bookGenreRemainingCharacters} characters remaining`;
         bookGenreTextRemainingCharacters.style.color = bookGenreColor;
     })
-
 </script>
 <script>
     const bookLanguage = document.getElementById('bookLanguage');
@@ -106,7 +115,6 @@
         bookLanguageTextRemainingCharacters.textContent = `${remainingBookLanguageCharacters} characters remaining`;
         bookLanguageTextRemainingCharacters.style.color = bookLanguageColor;
     })
-
 </script>
 </body>
 </html>

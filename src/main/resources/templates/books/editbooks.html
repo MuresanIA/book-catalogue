@@ -1,61 +1,74 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta charset="UTF-8">
-    <title>Edit Books</title>
-
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <!-- Compiled and minified CSS -->
+    <!-- Compiled and minified JavaScript -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <!--jQuery-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <link rel="stylesheet" th:href="@{/css/main.css}" xmlns:th="http://www.thymeleaf.org"/>
-</head>
-<body>
-<div class="row">
 
+    <link rel="stylesheet" th:href="@{/css/main.css}" xmlns:th="http://www.thymeleaf.org"/>
+
+    <meta charset="UTF-8">
+    <title>Edit Books</title>
+
+    <th:block th:insert="navbar.html::nav_script">
+    </th:block>
+
+    <th:block th:insert="navbar.html::menu_nav">
+    </th:block>
+
+    <th:block th:insert="navbar.html::mobile_nav">
+    </th:block>
+
+</head>
+<body th:style="'background-image:url(' + @{/img/Books-Wallpaper.jpg} + '); background-repeat: no-repeat, repeat; background-size: cover;'">
+<div class="row">
     <form name="edit_book" th:action="@{/editbooks/{id}(id= ${books.bookId})}"
           th:object="${books}"
           method="post">
         <input type="hidden" th:field="*{bookId}"/>
         <div class="container">
-            <div class="row">
-                <h5>Edit books</h5>
-            </div>
+            <h5 align="center">
+                <strong>Edit books</strong>
+            </h5>
             <br>
             <div class="row">
                 <div>
-                    <label class="active" for="bookName"><b>Book name</b></label>
+                    <label style="color:black" class="active" for="bookName"><b>Book name</b></label>
                     <input th:field="*{bookName}" id="bookName" type="text" class="validate"
-                           maxlength="20" placeholder="Book name..." required/>
+                           maxlength="20" placeholder="Please fill in..." required/>
                     <div id="editFormBookNameRemainingCharacters">20 characters remaining</div>
                 </div>
             </div>
             <div class="row">
                 <div>
-                    <label class="active" for="bookGenre"><b>Book genre</b></label>
+                    <label style="color:black" class="active" for="bookGenre"><b>Book genre</b></label>
                     <input th:field="*{bookGenre}" id="bookGenre" type="text" class="validate"
-                           maxlength="20" placeholder="Book genre..." required/>
+                           maxlength="20" placeholder="Please fill in..." required/>
                     <div id="editFormBookGenreRemainingCharacters">20 remaining characters</div>
                 </div>
             </div>
             <div class="row">
                 <div>
-                    <label class="active" for="bookYearRelease"><b>Release</b></label>
+                    <label style="color:black" class="active" for="bookYearRelease"><b>Release</b></label>
                     <input th:field="*{bookYearRelease}" id="bookYearRelease" type="date" pattern="yyyy-MM-dd"
                            class="validate"
-                           placeholder="Release..." required/>
+                           placeholder="Please fill in..." required/>
                 </div>
             </div>
             <div class="row">
                 <div>
-                    <label class="active" for="bookLanguage"><b>Language</b></label>
+                    <label style="color:black" class="active" for="bookLanguage"><b>Language</b></label>
                     <input th:field="*{bookLanguage}" id="bookLanguage" type="text" class="validate"
                            maxlength="20" placeholder="Language..." required/>
                     <div id="editFormBookLanguageTextRemainingCharacters">20 characters remaining</div>

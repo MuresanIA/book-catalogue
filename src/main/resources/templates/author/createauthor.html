@@ -1,48 +1,74 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta charset="UTF-8">
-    <title>Create Author</title>
-
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <!--    CSS-->
+    <!--jQuery-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     <link rel="stylesheet" th:href="@{/css/main.css}" xmlns:th="http://www.thymeleaf.org"/>
+    <meta charset="UTF-8">
+    <title>Create Author</title>
+    <script th:fragment="nav_script" xmlns:th="http://www.thymeleaf.org">
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+        });
+    </script>
 </head>
-<!--to be done-->
-<body>
+<body th:style="'background-image:url(' + @{/img/428760-Kycb_3840x2400.jpg} + '); background-repeat: no-repeat, repeat; background-size: cover;'">
+<nav th:fragment="menu_nav" xmlns:th="http://www.thymeleaf.org">
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <ul class="right hide-on-med-and-down">
+                    <li><a style="font-weight:bold; color: whitesmoke" th:href="@{/}">Home</a></li>
+                    <li><a style="font-weight:bold; color: whitesmoke" th:href="@{/authors}">Authors</a></li>
+                    <li><a style="font-weight:bold; color: whitesmoke" th:href="@{/books}">Books</a></li>
+                    <li><a style="font-weight:bold; color: whitesmoke" th:href="badges.html">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</nav>
+<ul th:fragment="mobile_nav" xmlns:th="http://www.thymeleaf.org" class="sidenav" id="mobile-demo">
+    <li><a style="font-weight:bold; color: whitesmoke" th:href="@{/}">Home</a></li>
+    <li><a style="font-weight:bold; color: whitesmoke" th:href="@{/authors}">Authors</a></li>
+    <li><a style="font-weight:bold; color: whitesmoke" th:href="@{/books}">Books</a></li>
+    <li><a style="font-weight:bold; color: whitesmoke" th:href="badges.html">Logout</a></li>
+</ul>
 <div class="row">
     <form name="createAuthor" th:action="@{/createauthor}"
           th:object="${author}" method="post">
         <div class="container">
-            <div class="row"><h5>Create author</h5></div>
-            <br>
+            <h5 align="left">
+                <strong>Create author</strong>
+            </h5>
             <div class="row">
-                <label for="firstName"><b>Author's first name</b></label>
+                <label style="color:black" for="firstName"><b>Author's first name</b></label>
                 <input th:field="*{authorFirstName}" id="firstName" type="text" class="validate"
-                       maxlength="20" placeholder="Author First Name..." required/>
+                       maxlength="20" placeholder="Please fill in..." required/>
                 <div id="firstNameTextRemainingChars">20 characters remaining</div>
             </div>
             <div class="row">
-                <label for="middleName"><b>Author's middle name</b></label>
+                <label style="color:black" for="middleName"><b>Author's middle name</b></label>
                 <input th:field="*{authorMiddleName}" id="middleName" type="text" class="validate"
-                       maxlength="20" placeholder="Author Middle Name..." required/>
+                       maxlength="20" placeholder="Please fill in..." required/>
                 <div id="middleNameTextRemainingCharacters">20 characters remaining</div>
             </div>
             <div class="row">
-                <label for="lastName"><b>Author's last name</b></label>
+                <label style="color:black" for="lastName"><b>Author's last name</b></label>
                 <input th:field="*{authorLastName}" id="lastName" type="text" class="validate"
-                       maxlength="20" placeholder="Author Last Name..." required/>
+                       maxlength="20" placeholder="Please fill in..." required/>
                 <div id="lastNameTextRemainingCharacters">20 characters remaining</div>
             </div>
             <button th:class="button" type="submit"><span>Save</span></button>

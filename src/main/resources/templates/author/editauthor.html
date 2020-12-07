@@ -1,59 +1,67 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta charset="UTF-8">
-    <title>Edit Author</title>
-
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <!--    CSS-->
+    <!--jQuery-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     <link rel="stylesheet" th:href="@{/css/main.css}" xmlns:th="http://www.thymeleaf.org"/>
+    <meta charset="UTF-8">
+    <title>Edit Author</title>
+
+    <th:block th:insert="navbar.html::nav_script">
+    </th:block>
+
+    <th:block th:insert="navbar.html::menu_nav">
+    </th:block>
+
+    <th:block th:insert="navbar.html::mobile_nav">
+    </th:block>
 
 </head>
-<body>
+<body th:style="'background-image:url(' + @{/img/oldpaperwallpaperhd.jpg} + '); background-repeat: no-repeat, repeat; background-size: cover;'">
 <div class="row">
-    <!--    it creates new data instead of updating it-->
     <form class="col s12" name="edit_author" th:action="@{/editauthor/{id}(id = ${author.authorId})}"
           th:object="${author}"
           method="post">
         <input type="hidden" th:field="*{authorId}"/>
         <div class="container">
-            <div class="row">
-                <h5>Edit author</h5>
-            </div>
-            <br>
+            <h5 align="center">
+                <strong>Edit author</strong>
+            </h5>
             <div class="row">
                 <div class="input-field col s12">
-                    <label class="active" for="firstName"><b>Author's first name</b></label>
+                    <label style="color:black" class="active" for="firstName"><b>Author's first name</b></label>
                     <input th:field="*{authorFirstName}" id="firstName" type="text" class="validate"
-                           maxlength="20" placeholder="Edit first name..."
+                           maxlength="20" placeholder="Please fill in..."
                            required/>
                     <div id="editFormFirstNameRemainingCharacters">20 characters remaining</div>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <label class="active" for="middleName"><b>Author's middle name</b></label>
+                    <label style="color:black" class="active" for="middleName"><b>Author's middle name</b></label>
                     <input th:field="*{authorMiddleName}" id="middleName" type="text" class="validate"
-                           maxlength="20" placeholder="Edit middle name..." required/>
+                           maxlength="20" placeholder="Please fill in..." required/>
                     <div id="editFormMiddleNameRemainingCharacters">20 characters remaining</div>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <label class="active" for="lastName"><b>Author's last name</b></label>
+                    <label style="color:black" class="active" for="lastName"><b>Author's last name</b></label>
                     <input th:field="*{authorLastName}" id="lastName" type="text" class="validate"
-                           maxlength="20" placeholder="Edit last name..."
+                           maxlength="20" placeholder="Please fill in..."
                            required/>
                     <div id="editFormLastNameRemainingCharacters">20 characters remaining</div>
                 </div>
@@ -72,7 +80,6 @@
         editFormFirstNameRemainingCharacters.textContent = `${remaining} characters remaining`;
         editFormFirstNameRemainingCharacters.style.color = color;
     })
-
 </script>
 <script>
     const middleName = document.getElementById('middleName');
@@ -84,7 +91,6 @@
         editFormMiddleNameRemainingCharacters.textContent = `${REMAINING_MIDDLE_NAME_CHARACTERS} characters remaining`;
         editFormMiddleNameRemainingCharacters.style.color = COLOR_MIDDLE_NAME;
     })
-
 </script>
 <script>
     const lastName = document.getElementById('lastName');
@@ -96,7 +102,6 @@
         editFormLastNameRemainingCharacters.textContent = `${REMAINING_LAST_NAME_CHARACTERS} characters remaining`;
         editFormLastNameRemainingCharacters.style.color = COLOR_LAST_NAME;
     })
-
 </script>
 </body>
 </html>
