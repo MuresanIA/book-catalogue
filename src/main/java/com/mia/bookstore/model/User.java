@@ -11,12 +11,12 @@ import java.util.Collection;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table
+@Table(name = "users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer userId;
+    private Long userId;
 
     @Column(name = "first_name")
     private String firstName;
@@ -33,7 +33,7 @@ public class User {
 
     @ManyToMany
     @JoinTable(
-            name = "User_Roles",
+            name = "user_role",
             joinColumns = @JoinColumn(
                     name = "user_id", referencedColumnName = "userId"
             ),
