@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Collection;
 
 @Data
@@ -17,6 +18,8 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long roleId;
 
+    @Size(min = 3, max = 20)
+    @Column(name = "role_name", nullable = false, length = 20)
     private String name;
 
     @ManyToMany(mappedBy = "roles")
