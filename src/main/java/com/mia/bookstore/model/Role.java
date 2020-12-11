@@ -1,9 +1,7 @@
 package com.mia.bookstore.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 public class Role {
@@ -13,5 +11,19 @@ public class Role {
     private Integer roleId;
 
     private String name;
+
+    @ManyToMany(mappedBy = "roles")
+    private Collection<User> users;
+
+    @ManyToMany
+    @JoinTable(
+            name = "roles_privileges",
+            joinColumns = @JoinColumn(
+                    name = "role_id", referencedColumnName = "roleId"),
+            inverseJoinColumns = @JoinColumn(
+                    name = "privilege_id", referencedColumnName = "privilegeId"
+            )
+    )
+    private Collection<Privilege> privileges;
 
 }
