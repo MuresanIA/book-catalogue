@@ -1,9 +1,7 @@
 package com.mia.bookstore.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 public class User {
@@ -18,5 +16,18 @@ public class User {
     private String password;
     private boolean enabled;
     private boolean tokenExpired;
+
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_roles",
+            joinColumns = @JoinColumn(
+                    name = "user_id", referencedColumnName = "userId"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "role_id", referencedColumnName = "roleId"
+            )
+    )
+    private Collection<Role> roles;
 
 }
