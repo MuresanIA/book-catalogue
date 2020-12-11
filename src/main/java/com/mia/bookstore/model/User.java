@@ -1,8 +1,13 @@
 package com.mia.bookstore.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.util.Collection;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class User {
 
