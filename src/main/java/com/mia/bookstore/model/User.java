@@ -19,20 +19,20 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long userId;
     @Size(min = 3, max = 20)
-    @Column(name = "first_name")
+    @Column(name = "first_name", nullable = false, length = 20)
     private String firstName;
     @Size(min = 3, max = 20)
-    @Column(name = "last_name")
+    @Column(name = "last_name", nullable = false, length = 20)
     private String lastName;
     @Size(min = 3, max = 20)
-    @Column(name = "user_email")
+    @Column(name = "user_email", nullable = false, length = 20)
     private String email;
     @Size(min = 3, max = 20)
-    @Column(name = "user_password")
+    @Column(name = "user_password", nullable = false, length = 20)
     private String password;
-    @Column(name = "is_enabled")
+    @Column(name = "is_enabled", nullable = false)
     private boolean enabled;
-    @Column(name = "is_token_expired")
+    @Column(name = "is_token_expired", nullable = false)
     private boolean tokenExpired;
 
     @ManyToMany
