@@ -16,7 +16,6 @@ public class Privilege {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "privilege_id", nullable = false)
     private Long privilegeId;
 
     @Size(min = 3, max = 20)

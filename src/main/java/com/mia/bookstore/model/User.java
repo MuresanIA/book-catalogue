@@ -1,8 +1,6 @@
 package com.mia.bookstore.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -11,13 +9,14 @@ import java.util.Collection;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 @Entity
-@Table(name = "users")
+@Table(name = "users_table")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "user_id", nullable = false)
     private Long userId;
     @Size(min = 3, max = 20)
     @Column(name = "first_name", nullable = false, length = 20)
@@ -38,7 +37,7 @@ public class User {
 
     @ManyToMany
     @JoinTable(
-            name = "user_role",
+            name = "user_roles",
             joinColumns = @JoinColumn(
                     name = "user_id", referencedColumnName = "userId"
             ),
