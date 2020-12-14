@@ -47,8 +47,8 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
         final Privilege readPrivilege = createPrivilegeIfNotFound("READ_PRIVILEGE");
         final Privilege writePrivilege = createPrivilegeIfNotFound("WRITE_PRIVILEGE");
 
-        List<Privilege> adminPrivieleges = Arrays.asList(readPrivilege, writePrivilege);
-        createRoleIfNotFound("ROLE_ADMIN", adminPrivieleges);
+        List<Privilege> adminPrivileges = Arrays.asList(readPrivilege, writePrivilege);
+        createRoleIfNotFound("ROLE_ADMIN", adminPrivileges);
         createRoleIfNotFound("ROLE_USER", Arrays.asList(readPrivilege));
 
         Role adminRole = roleRepository.findByName("ROLE_ADMIN");
@@ -62,7 +62,6 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
         userRepository.save(user);
 
         alreadySetup = true;
-
     }
 
     @Transactional
@@ -85,6 +84,7 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
         }
         return role;
     }
+}
 
 //    @Transactional
 //    User createUserIfNotFound(final String email, final String firstName, final String lastName, final String password, final Collection<Role> roles) {
@@ -101,4 +101,3 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
 //        user = userRepository.save(user);
 //        return user;
 //    }
-}
