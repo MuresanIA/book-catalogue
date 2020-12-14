@@ -12,10 +12,11 @@ import java.util.Collection;
 @Getter
 @Setter
 @Entity
-@Table(name = "users_table")
+@Table(name = "users_account")
 public class User {
 
     @Id
+    @Column(unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long userId;
     @Size(min = 3, max = 20)
