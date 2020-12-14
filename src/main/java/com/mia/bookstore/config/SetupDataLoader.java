@@ -38,7 +38,12 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
     }
 
     @Transactional
-    Privilege createPrivilegeIfNotFound() {
+    Privilege createPrivilegeIfNotFound(String name) {
+        Privilege privilege = privilegeRepository.findByName(name);
+        if (privilege == null){
+            privilege = new Privilege(name);
+            privilege = privilegeRepository.save(privilege);
+        }
     }
 
     @Transactional
