@@ -1,16 +1,18 @@
 package com.mia.bookstore.config;
 
 import com.mia.bookstore.model.Privilege;
+import com.mia.bookstore.model.Role;
+import com.mia.bookstore.model.User;
 import com.mia.bookstore.repository.PrivilegeRepository;
 import com.mia.bookstore.repository.RoleRepository;
 import com.mia.bookstore.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
-public class SetupDataLoader implements ApplicationListener {
+public class SetupDataLoader implements ApplicationListener<ContextRefreshedEvent> {
 
     boolean alreadySetup = false;
 
@@ -27,9 +29,8 @@ public class SetupDataLoader implements ApplicationListener {
     private PasswordEncoder passwordEncoder;
 
 
-    @Transactional
     @Override
-    public void onApplicationEvent(ApplicationEvent applicationEvent) {
+    public void onApplicationEvent(ContextRefreshedEvent event) {
 
         if (alreadySetup) {
             return;
@@ -37,14 +38,14 @@ public class SetupDataLoader implements ApplicationListener {
     }
 
     @Transactional
-    Privilege createPrivilegeIfNotFound(String name){
-
-        Privilege privilege = privilegeRepository.findByName(name);
-        if (privilege == null){
-            privilege = new Privilege(name);
-            privilegeRepository.save(privilege);
-        }
-        return privilege;
+    Privilege createPrivilegeIfNotFound() {
     }
 
+    @Transactional
+    Role createRoleIfNotFound() {
+    }
+
+    @Transactional
+    User createUserIfNotFound() {
+    }
 }
