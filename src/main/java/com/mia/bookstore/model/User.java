@@ -27,8 +27,8 @@ public class User {
     @Size(min = 3, max = 20)
     @Column(name = "user_email", nullable = false, length = 20)
     private String email;
-    @Size(min = 3, max = 20)
-    @Column(name = "user_password", nullable = false, length = 20)
+    @Size(min = 3, max = 60)
+    @Column(name = "user_password", nullable = false, length = 60)
     private String password;
     @Column(name = "is_enabled", nullable = false)
     private boolean enabled;
