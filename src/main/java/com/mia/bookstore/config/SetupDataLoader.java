@@ -35,4 +35,16 @@ public class SetupDataLoader implements ApplicationListener {
             return;
         }
     }
+
+    @Transactional
+    Privilege createPrivilegeIfNotFound(String name){
+
+        Privilege privilege = privilegeRepository.findByName(name);
+        if (privilege == null){
+            privilege = new Privilege(name);
+            privilegeRepository.save(privilege);
+        }
+        return privilege;
+    }
+
 }
