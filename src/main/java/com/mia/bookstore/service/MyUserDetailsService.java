@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 //Todo: to implement the object.
-
 @Service("userDetailsService")
 @Transactional
 public class MyUserDetailsService implements UserDetailsService {
@@ -20,9 +19,6 @@ public class MyUserDetailsService implements UserDetailsService {
 
     @Autowired
     private RoleRepository roleRepository;
-
-
-
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
