@@ -46,6 +46,7 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
             privilege = new Privilege(name);
             privilege = privilegeRepository.save(privilege);
         }
+        return privilege;
     }
 
     @Transactional
