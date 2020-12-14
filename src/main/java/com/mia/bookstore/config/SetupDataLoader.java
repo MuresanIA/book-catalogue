@@ -12,6 +12,8 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collection;
+
 public class SetupDataLoader implements ApplicationListener<ContextRefreshedEvent> {
 
     boolean alreadySetup = false;
@@ -40,14 +42,21 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
     @Transactional
     Privilege createPrivilegeIfNotFound(String name) {
         Privilege privilege = privilegeRepository.findByName(name);
-        if (privilege == null){
+        if (privilege == null) {
             privilege = new Privilege(name);
             privilege = privilegeRepository.save(privilege);
         }
     }
 
     @Transactional
-    Role createRoleIfNotFound() {
+    Role createRoleIfNotFound(String name, Collection<Privilege> privileges) {
+        Role role = roleRepository.findByName(name);
+        if (role == null) {
+            role = new Role(name);
+            role.setPrivileges(privileges);
+            roleRepository.save(role);
+        }
+        return role;
     }
 
     @Transactional

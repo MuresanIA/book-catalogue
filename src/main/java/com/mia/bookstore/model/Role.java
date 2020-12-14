@@ -2,7 +2,6 @@ package com.mia.bookstore.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -10,7 +9,6 @@ import java.util.Collection;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity
 public class Role {
 
@@ -36,4 +34,12 @@ public class Role {
     )
     private Collection<Privilege> privileges;
 
+    public Role() {
+        super();
+    }
+
+    public Role(final String name) {
+        super();
+        this.name = name;
+    }
 }
