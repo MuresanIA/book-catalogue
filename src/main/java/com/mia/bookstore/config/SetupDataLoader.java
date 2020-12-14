@@ -8,10 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.transaction.annotation.Transactional;
 
 public class SetupDataLoader implements ApplicationListener {
 
-    boolean alreadSetup = false;
+    boolean alreadySetup = false;
 
     @Autowired
     private UserRepository userRepository;
@@ -26,13 +27,12 @@ public class SetupDataLoader implements ApplicationListener {
     private PasswordEncoder passwordEncoder;
 
 
-
-
-
-
-
+    @Transactional
     @Override
     public void onApplicationEvent(ApplicationEvent applicationEvent) {
 
+        if (alreadySetup) {
+            return;
+        }
     }
 }
