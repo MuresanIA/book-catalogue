@@ -12,6 +12,7 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -42,6 +43,22 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
         // ---create initial privileges---
         final Privilege readPrivilege = createPrivilegeIfNotFound("READ_PRIVILEGE");
         final Privilege writePrivilege = createPrivilegeIfNotFound("WRITE_PRIVILEGE");
+
+        List<Privilege> adminPrivieleges = Arrays.asList(readPrivilege, writePrivilege);
+        createRoleIfNotFound("ROLE_ADMIN", adminPrivieleges);
+        createRoleIfNotFound("ROLE_USER", Arrays.asList(readPrivilege));
+
+        Role adminRole = roleRepository.findByName("ROLE_ADMIN");
+        User user = new User();
+        user.setFirstName("Test");
+        user.setLastName("Test");
+        user.setPassword(passwordEncoder.encode("test"));
+        user.setEmail("test@test.com");
+        user.setRoles(Arrays.asList(adminRole));
+        user.setEnabled(true);
+        userRepository.save(user);
+
+        alreadySetup = true;
 
     }
 
