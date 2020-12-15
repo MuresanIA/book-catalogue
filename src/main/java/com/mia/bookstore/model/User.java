@@ -16,7 +16,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long userId;
+    private Integer userId;
 
     @Size(min = 3, max = 30)
     @Column(name = "user_name", length = 30, nullable = false)

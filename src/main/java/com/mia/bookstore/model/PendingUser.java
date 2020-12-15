@@ -17,7 +17,7 @@ public class PendingUser {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "pending_user_id")
-    private Long pendingUserId;
+    private Integer pendingUserId;
 
 
     @Column(name = "activation_code")
