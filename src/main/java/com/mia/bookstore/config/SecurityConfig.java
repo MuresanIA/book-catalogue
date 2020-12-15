@@ -13,7 +13,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/resources/**").permitAll()
+                .antMatchers("/login").permitAll()
+                .antMatchers("/userValidation").permitAll()
                 .antMatchers("/").permitAll()
-                .anyRequest().permitAll();
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/").permitAll()
+                .defaultSuccessUrl("/books", true)
+                .and()
+                .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/")
+                .permitAll();
+
+
     }
 }
