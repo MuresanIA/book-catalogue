@@ -11,6 +11,6 @@ public interface PendingUserRepository extends JpaRepository<PendingUser, Long> 
 
     Optional<PendingUser> findByActivationCode(String activationCode);
 
-    @Query("FROM PendingUser p where p.user.username = :username")
-    Optional<PendingUser> findByUsername(@Param("username") String username);
+//    @Query("FROM PendingUser p where p.user.username = :username")
+//    Optional<PendingUser> findByUsername(@Param("username") String username);
 }
