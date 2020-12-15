@@ -26,4 +26,8 @@ public class PendingUser {
     @Column(name = "expiration_date")
     private Date expireDate;
 
+    @OneToOne
+    @JoinColumn(name = "userId")
+    private User user;
+
 }
