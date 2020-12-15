@@ -2,6 +2,7 @@ package com.mia.bookstore.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 public class Role {
@@ -14,5 +15,8 @@ public class Role {
     @Size(min = 3, max = 30)
     @Column(name = "role_name", length = 30, nullable = false)
     private String roleName;
+
+    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL)
+    private List<User> users;
 
 }
