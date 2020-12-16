@@ -10,7 +10,6 @@ import java.util.Optional;
 
 @Service("AuthorService")
 public class AuthorService {
-
     private final AuthorRepository authorRepository;
 
     public AuthorService(AuthorRepository authorRepository) {

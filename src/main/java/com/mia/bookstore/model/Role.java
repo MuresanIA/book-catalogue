@@ -14,7 +14,6 @@ import java.util.List;
 @NoArgsConstructor
 @Table(name = "role_for_users")
 public class Role {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "role_id")

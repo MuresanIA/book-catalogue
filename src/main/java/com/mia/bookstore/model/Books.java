@@ -14,7 +14,6 @@ import java.sql.Date;
 @Entity(name = "books")
 @Table()
 public class Books {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "book_id", nullable = false)

@@ -13,7 +13,6 @@ import java.sql.Date;
 @NoArgsConstructor
 @Table(name = "pending_user")
 public class PendingUser {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "pending_user_id")

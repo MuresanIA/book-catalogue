@@ -10,7 +10,6 @@ import java.util.Optional;
 
 @Service("UserService")
 public class UserService {
-
     @Autowired
     public UserRepository userRepository;
 
