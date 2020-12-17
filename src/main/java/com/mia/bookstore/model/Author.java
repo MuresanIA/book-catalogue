@@ -14,7 +14,6 @@ import java.util.List;
 @Entity(name = "author")
 @Table()
 public class Author {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "author_id", nullable = false)
@@ -31,5 +30,4 @@ public class Author {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "author")
     private List<Books> books;
-
 }

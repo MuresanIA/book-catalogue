@@ -3,10 +3,9 @@ package com.mia.bookstore.repository;
 import com.mia.bookstore.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+import java.util.Optional;
 
-    User findByEmail(String email);
+public interface UserRepository extends JpaRepository<User, Integer> {
 
-    @Override
-    void delete(User user);
+    Optional<User> findByUsername(String username);
 }

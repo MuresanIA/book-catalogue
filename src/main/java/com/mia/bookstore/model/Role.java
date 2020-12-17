@@ -2,44 +2,28 @@ package com.mia.bookstore.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-import java.util.Collection;
+import java.util.List;
 
+@Entity
 @Data
 @AllArgsConstructor
-@Entity
+@NoArgsConstructor
+@Table(name = "role_for_users")
 public class Role {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long roleId;
+    @Column(name = "role_id")
+    private Integer roleId;
 
-    @Size(min = 3, max = 20)
-    @Column(name = "role_name", nullable = false, length = 20)
-    private String name;
+    @Size(min = 3, max = 30)
+    @Column(name = "role_name", length = 30, nullable = false)
+    private String roleName;
 
-    @ManyToMany(mappedBy = "roles")
-    private Collection<User> users;
+    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL)
+    private List<User> users;
 
-    @ManyToMany
-    @JoinTable(
-            name = "roles_privileges",
-            joinColumns = @JoinColumn(
-                    name = "role_id", referencedColumnName = "roleId"),
-            inverseJoinColumns = @JoinColumn(
-                    name = "privilege_id", referencedColumnName = "privilegeId"
-            )
-    )
-    private Collection<Privilege> privileges;
-
-    public Role() {
-        super();
-    }
-
-    public Role(final String name) {
-        super();
-        this.name = name;
-    }
 }

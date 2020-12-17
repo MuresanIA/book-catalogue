@@ -10,7 +10,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class AuthorRestController {
-
     private final AuthorRepository authorRepository;
 
     public AuthorRestController(AuthorRepository authorRepository) {
