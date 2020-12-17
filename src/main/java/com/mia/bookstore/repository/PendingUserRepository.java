@@ -10,6 +10,6 @@ import java.util.Optional;
 public interface PendingUserRepository extends JpaRepository<PendingUser, Integer> {
     Optional<PendingUser> findByActivationCode(String activationCode);
 
-    @Query
+    @Query("FROM PendingUser p where p.user.username = :username")
     Optional<PendingUser> findByUsername(@Param("username") String username);
 }

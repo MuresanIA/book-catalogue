@@ -19,7 +19,7 @@ public class User {
 
     @Size(min = 3, max = 30)
     @Column(name = "user_name", length = 30, nullable = false)
-    private String userName;
+    private String username;
 
     @Size(min = 3, max = 30)
     @Column(name = "email_address", length = 30, nullable = false)
