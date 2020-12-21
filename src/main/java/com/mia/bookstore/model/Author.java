@@ -16,15 +16,15 @@ import java.util.List;
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "author_id", nullable = false)
+    @Column(name = "author_id")
     private Integer authorId;
-    @Column(name = "author_first_name", nullable = false, length = 20)
+    @Column(name = "author_first_name", length = 20)
     @Size(min = 3, max = 20)
     private String authorFirstName;
-    @Column(name = "author_middle_name", nullable = false, length = 20)
+    @Column(name = "author_middle_name", length = 20)
     @Size(min = 3, max = 20)
     private String authorMiddleName;
-    @Column(name = "author_last_name", nullable = false, length = 20)
+    @Column(name = "author_last_name", length = 20)
     @Size(min = 3, max = 20)
     private String authorLastName;
 
