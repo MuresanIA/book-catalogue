@@ -18,15 +18,15 @@ public class User {
     private Integer userId;
 
     @Size(min = 3, max = 30)
-    @Column(name = "user_name", length = 30, nullable = false)
+    @Column(name = "user_name", length = 30)
     private String username;
 
     @Size(min = 3, max = 30)
-    @Column(name = "email_address", length = 30, nullable = false)
+    @Column(name = "email_address", length = 30)
     private String email;
 
     @Size(min = 3, max = 30)
-    @Column(name = "user_password", length = 30, nullable = false)
+    @Column(name = "user_password", length = 30)
     private String password;
 
     @ManyToOne(fetch = FetchType.LAZY)

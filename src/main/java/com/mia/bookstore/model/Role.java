@@ -20,7 +20,7 @@ public class Role {
     private Integer roleId;
 
     @Size(min = 3, max = 30)
-    @Column(name = "role_name", length = 30, nullable = false)
+    @Column(name = "role_name", length = 30)
     private String roleName;
 
     @OneToMany(mappedBy = "role", cascade = CascadeType.ALL)
