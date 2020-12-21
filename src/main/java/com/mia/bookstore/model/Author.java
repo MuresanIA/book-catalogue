@@ -18,14 +18,14 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "author_id")
     private Integer authorId;
-    @Column(name = "author_first_name", length = 20)
-    @Size(min = 3, max = 20)
+    @Column(name = "author_first_name", length = 50)
+    @Size(min = 3, max = 50)
     private String authorFirstName;
-    @Column(name = "author_middle_name", length = 20)
-    @Size(min = 3, max = 20)
+    @Column(name = "author_middle_name", length = 50)
+    @Size(min = 3, max = 50)
     private String authorMiddleName;
-    @Column(name = "author_last_name", length = 20)
-    @Size(min = 3, max = 20)
+    @Column(name = "author_last_name", length = 50)
+    @Size(min = 3, max = 50)
     private String authorLastName;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "author")

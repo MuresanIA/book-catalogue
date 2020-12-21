@@ -17,16 +17,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer userId;
 
-    @Size(min = 3, max = 30)
-    @Column(name = "user_name", length = 30)
+    @Size(min = 3, max = 50)
+    @Column(name = "user_name", length = 50)
     private String username;
 
-    @Size(min = 3, max = 30)
-    @Column(name = "email_address", length = 30)
+    @Size(min = 3, max = 50)
+    @Column(name = "email_address", length = 50)
     private String email;
 
-    @Size(min = 3, max = 30)
-    @Column(name = "user_password", length = 30)
+    @Size(min = 3, max = 50)
+    @Column(name = "user_password", length = 50)
     private String password;
 
     @ManyToOne(fetch = FetchType.LAZY)
