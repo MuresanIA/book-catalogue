@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.sql.Date;
 
 @Data
@@ -19,12 +20,15 @@ public class Books {
     @Column(name = "book_id")
     private Integer bookId;
     @Column(name = "book_name", length = 50)
+    @Size(min = 3, max = 50)
     private String bookName;
     @Column(name = "book_genre", length = 50)
+    @Size(min = 3, max = 50)
     private String bookGenre;
-    @Column(name = "book_year_release", length = 50)
+    @Column(name = "book_year_release")
     private Date bookYearRelease;
     @Column(name = "book_language", length = 50)
+    @Size(min = 3, max = 50)
     private String bookLanguage;
 
     @JsonIgnore
