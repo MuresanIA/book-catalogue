@@ -34,7 +34,7 @@ public class RegisterController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/register")
     public String registerUser() {
-        return "security/register";
+        return "security/registerform";
     }
 
     @Bean
