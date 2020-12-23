@@ -56,7 +56,7 @@ public class RegisterController {
         PendingUser pendingUser = new PendingUser();
         String activationCode = randomStringGeneratorService.getAlphaNumericString(20);
         pendingUser.setActivationCode(activationCode);
-        sendGridEmailService.sendHTML("muresan.courses@gmail.com", user.getUsername(),
+        sendGridEmailService.sendHTML("buhaidebalta.15@gmail.com", user.getUsername(),
                 "Greetings traveller, we must confirm the account in order to go further.",
                 randomStringGeneratorService.linkCreator(activationCode, validationUrl));
         return "redirect:/login";
