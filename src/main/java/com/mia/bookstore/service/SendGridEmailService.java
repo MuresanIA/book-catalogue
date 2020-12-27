@@ -25,6 +25,7 @@ public class SendGridEmailService {
     public SendGridEmailService(SendGrid sendGridClient) {
         this.sendGridClient = sendGridClient;
     }
+
     public void sendText(String from, String to, String subject, String body) {
         Response response = sendEmail(from, to, subject, new Content("text/plain", body));
         log.info("Status Code: " + response.getStatusCode() + ", Body: " + response.getBody() + ", Headers: "
