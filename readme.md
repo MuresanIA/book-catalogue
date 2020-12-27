@@ -17,13 +17,9 @@
 - Hibernate 
 
 
-### Project status in progress.
-
-### Features to implement:
-
-- User authentication.
-- User roles: admin & user.
-- JWT
+### Project status done.
 
 
-### Deployment status in progress.
+
+### Deployment status done.
+Heroku link: https://book-catalogue-muresania.herokuapp.com/
