@@ -1,4 +1,4 @@
-# Book Store Web Application
+# Book - Catalogue
 
 ## Technology used:
 
